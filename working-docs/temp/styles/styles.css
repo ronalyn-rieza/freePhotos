@@ -355,6 +355,7 @@ html {
 }
 
 body {
+    margin-top: 6.5rem;
     font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
     font-size: 1rem;
     font-weight: 400;
@@ -363,4 +364,217 @@ body {
     background: url("../../assets/images/logos/sand_pattern_red_overlay.jpg") no-repeat center center fixed;
     background-size: cover;
     min-height: 100vh;
+}
+
+ul li{
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+hr{
+  display: none;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border: 0;
+  border-top: 1px solid rgba(0,0,0,.1);
+  box-sizing: content-box;
+  height: 0;
+  overflow: visible;
+
+}
+
+@media only screen and (max-width: 61.9em) {
+
+hr{
+      display: block
+
+}
+  }
+
+small{
+  font-size: 80%;
+  font-weight: 400;
+}
+
+.container{
+  width: 80%;
+  padding: 1rem;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@media only screen and (max-width: 61.9em) {
+
+.container{
+      width: 90%
+}
+  }
+
+@media only screen and (max-width: 47.9em) {
+
+.container{
+      width: 100%
+}
+  }
+
+.mr-medium{
+  margin-right: 1rem !important;
+}
+
+.ml-medium{
+  margin-left: 1rem !important;
+}
+
+.text-muted{
+  color:#777;
+}
+
+.header{
+  background: rgba(248,249,250, 0.8);
+  position: fixed;
+  top:0;
+  width: 100%;
+  box-shadow: 1px 1px 4px #007791;
+
+}
+
+.nav__primary{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+.nav__primary--item{
+      margin-left: 1rem;
+
+    }
+
+.nav__primary--item-end{
+        margin-left: auto;
+
+      }
+
+@media only screen and (max-width: 61.9em) {
+
+.nav__primary--item-end{
+          margin-left:1rem
+
+      }
+  }
+
+@media only screen and (max-width: 61.9em) {
+
+.nav__primary{
+        flex-direction: column;
+          align-items: start
+  }
+  }
+
+.nav__secondary{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+.nav__secondary--item{
+      margin-left: auto;
+    }
+
+@media only screen and (max-width: 47.9em) {
+
+.nav__secondary--item{
+        margin-right:auto
+    }
+  }
+
+@media only screen and (max-width: 47.9em) {
+
+.nav__secondary{
+    flex-direction: column;
+    align-items: start
+  }
+  }
+
+.nav__web-name-text{
+    position:absolute;
+    top: 0;
+    left: 0;
+    margin:0;
+    padding: 0;
+    text-indent: -9999px;
+    display: inline-block;
+  }
+
+.nav__web-name-logo{
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+
+.nav__link--item {
+
+  }
+
+.btn{
+    -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+    transition: all .2s;
+    display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+    border: 1px solid transparent;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+}
+
+.btn__primary{
+    color: #007791;
+    background-color: transparent;
+    background-image: none;
+    border-color: #007791;
+    }
+
+.btn__primary:hover{
+        background-color: #007791;
+        border:none;
+        color: #eee;
+      }
+
+.btn__secondary{
+    color: #dc3545;
+    background-color: transparent;
+    background-image: none;
+    border-color: #dc3545;
+    }
+
+.btn__secondary:hover{
+        background-color: #dc3545;
+        border:none;
+        color: #eee;
+      }
+
+.btn:hover {
+    -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+    -webkit-transform: translateY(-3px);
+            transform: translateY(-3px);
+    box-shadow: 0 .5rem 1.5rem rgba(0, 0, 0, 0.3);
+}
+
+.btn:active, .btn:focus{
+    -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+    outline: none;
+    box-shadow: 0 0.2rem .5rem rgba(0, 0, 0, 0.3);
+
 }

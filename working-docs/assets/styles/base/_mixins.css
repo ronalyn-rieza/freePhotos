@@ -1,38 +1,21 @@
 @define-mixin atSmallest {
-  @media only screen and (max-width: 31.25em) {
+  @media only screen and (max-width: 35.9em) {
     @mixin-content;
   }
 }
 
 @define-mixin atSmall {
-  @media only screen and (max-width: 37.5em) {
+  @media only screen and (max-width: 47.9em) {
     @mixin-content;
   }
 }
 
 @define-mixin atMedium {
-  @media only screen and (max-width: 56.25em) {
+  @media only screen and (max-width: 61.9em) {
     @mixin-content;
   }
 }
 
-@define-mixin atLarge {
-  @media only screen and (max-width: 68.75em) {
-    @mixin-content;
-  }
-}
-
-@define-mixin atLargest {
-  @media only screen and (max-width: 75em) {
-    @mixin-content;
-  }
-}
-
-@define-mixin atextraLarge {
-  @media only screen and (min-width: 112.5em) {
-    @mixin-content;
-  }
-}
 
 @define-mixin clearfix {
   &::after {

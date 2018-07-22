@@ -1,0 +1,132 @@
+.header{
+  background: rgba($color-light, 0.8);
+  position: fixed;
+  top:0;
+  width: 100%;
+  box-shadow: 1px 1px 4px $color-primary;
+
+}
+
+.nav{
+
+  &__primary{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    &--item{
+      margin-left: 1rem;
+
+      &-end{
+        margin-left: auto;
+
+        @mixin atMedium{
+          margin-left:1rem;
+
+        }
+
+      }
+
+    }
+
+    @mixin atMedium{
+        flex-direction: column;
+          align-items: start;
+
+    }
+  }
+
+  &__secondary{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    &--item{
+      margin-left: auto;
+      @mixin atSmall{
+        margin-right:auto;
+
+
+          }
+    }
+
+    @mixin atSmall{
+    flex-direction: column;
+    align-items: start;
+
+
+        }
+  }
+
+  &__web-name-text{
+    position:absolute;
+    top: 0;
+    left: 0;
+    margin:0;
+    padding: 0;
+    text-indent: -9999px;
+    display: inline-block;
+  }
+
+  &__web-name-logo{
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+
+
+
+  &__link--item {
+
+  }
+}
+
+.btn{
+    backface-visibility: hidden;
+    transition: all .2s;
+    display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    user-select: none;
+    border: 1px solid transparent;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+
+    &__primary{
+    color: $color-primary;
+    background-color: transparent;
+    background-image: none;
+    border-color: $color-primary;
+
+      &:hover{
+        background-color: $color-primary;
+        border:none;
+        color: $color-grey-light-2;
+      }
+    }
+
+    &__secondary{
+    color: $color-secondary;
+    background-color: transparent;
+    background-image: none;
+    border-color: $color-secondary;
+
+      &:hover{
+        background-color: $color-secondary;
+        border:none;
+        color: $color-grey-light-2;
+      }
+    }
+}
+.btn:hover {
+    backface-visibility: hidden;
+    transform: translateY(-3px);
+    box-shadow: 0 .5rem 1.5rem rgba(0, 0, 0, 0.3);
+}
+.btn:active, .btn:focus{
+    backface-visibility: hidden;
+    outline: none;
+    box-shadow: 0 0.2rem .5rem rgba(0, 0, 0, 0.3);
+
+}
