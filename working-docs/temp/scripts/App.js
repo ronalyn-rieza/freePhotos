@@ -3783,7 +3783,19 @@ eval("var g;\n\n// This works in non-strict mode\ng = (function() {\n\treturn th
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\n\nconsole.log('abc 1234444');\n\n//# sourceURL=webpack:///./working-docs/assets/scripts/App.js?");
+eval("\n\nvar _base = __webpack_require__(/*! ./views/base */ \"./working-docs/assets/scripts/views/base.js\");\n\n//menu bar toggler for primary nav on medium size screen\nvar mMenuBar = _base.elements.mediumMenuBar;\n\nif (mMenuBar) {\n  mMenuBar.addEventListener('click', function (mIcon) {\n\n    var el = mIcon.target.closest('.nav__menu-icon--show-medium');\n    //check if nav menu icon has menu-icon--close-x\n    var iconClose = el.classList.contains('nav__menu-icon--close-x');\n\n    if (iconClose) {\n      //if its true remove the class\n      el.classList.remove('nav__menu-icon--close-x');\n    } else {\n      //if its false add the class\n      el.classList.add('nav__menu-icon--close-x');\n    }\n    //selecting div with class of nav__primary--content\n    var content = el.parentElement.querySelector('.nav__primary--content');\n    //checking if it has class of nav__primary--content--is-visible\n    var contentVisible = content.classList.contains('nav__primary--content--is-visible');\n\n    if (contentVisible) {\n      //if its true remove the class\n      content.classList.remove('nav__primary--content--is-visible');\n    } else {\n      //if its false add the class\n      content.classList.add('nav__primary--content--is-visible');\n    }\n  });\n}\n\n//menu bar toggler for secondary nav on small size screen\nvar sMenuBar = _base.elements.smallMenuBar;\n\nif (sMenuBar) {\n  sMenuBar.addEventListener('click', function (sIcon) {\n\n    var el = sIcon.target.closest('.nav__menu-icon--show-small');\n\n    //check if nav menu icon has menu-icon--close-x\n    var iconClose = el.classList.contains('nav__menu-icon--close-x');\n\n    if (iconClose) {\n      //if its true remove the class\n      el.classList.remove('nav__menu-icon--close-x');\n    } else {\n      //if its false add the cl\n      el.classList.add('nav__menu-icon--close-x');\n    }\n    //selecting div with class of nav__primary--content\n    var content = el.parentElement.querySelector('.nav__secondary--content');\n    //checking if it has class of nav__primary--content--is-visible\n    var contentVisible = content.classList.contains('nav__secondary--content--is-visible');\n\n    if (contentVisible) {\n      //if its true remove the class\n      content.classList.remove('nav__secondary--content--is-visible');\n    } else {\n      //if its false add the class\n      content.classList.add('nav__secondary--content--is-visible');\n    }\n  });\n}\n\n//# sourceURL=webpack:///./working-docs/assets/scripts/App.js?");
+
+/***/ }),
+
+/***/ "./working-docs/assets/scripts/views/base.js":
+/*!***************************************************!*\
+  !*** ./working-docs/assets/scripts/views/base.js ***!
+  \***************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nvar elements = exports.elements = {\n  mediumMenuBar: document.querySelector('.nav__menu-icon--show-medium'),\n  smallMenuBar: document.querySelector('.nav__menu-icon--show-small')\n};\n\n//# sourceURL=webpack:///./working-docs/assets/scripts/views/base.js?");
 
 /***/ }),
 
