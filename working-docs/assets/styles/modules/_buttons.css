@@ -5,13 +5,12 @@
     white-space: nowrap;
     vertical-align: middle;
     user-select: none;
-    border: 1px solid transparent;
-    padding: .375rem .75rem;
     font-size: 1rem;
     line-height: 1.5;
+    border: 1px solid transparent;
     border-radius: .25rem;
     box-shadow: 0 0.2rem .5rem rgba(0, 0, 0, 0.3);
-    transition: all .2s ease-in-out;
+    transition: all .2s ease;
     backface-visibility: hidden;
 
     &__primary{
@@ -19,13 +18,15 @@
     background-color: transparent;
     background-image: none;
     border-color: $color-primary;
-    transition: all .2s ease-in-out;
+    transition: all .2s ease;
     backface-visibility: hidden;
+    padding: .375rem .75rem;
 
       &:hover{
         background-color: $color-primary;
         border:none;
         color: $color-grey-light-2;
+        font-size: 1.1rem;
         backface-visibility: hidden;
       }
     }
@@ -35,13 +36,16 @@
     background-color: transparent;
     background-image: none;
     border-color: $color-secondary;
-    transition: all .2s ease-in-out;
+    padding: .375rem .75rem;
+    transition: all .2s ease;
     backface-visibility: hidden;
+
 
       &:hover{
         background-color: $color-secondary;
         border:none;
         color: $color-grey-light-2;
+        font-size: 1.1rem;
         backface-visibility: hidden;
       }
     }
@@ -51,19 +55,69 @@
       background-color: transparent;
       background-image: none;
       border-color: $color-grey-dark-3;
-      transition: all .2s ease-in-out;
+      transition: all .2s ease;
       backface-visibility: hidden;
+      padding: .375rem .75rem;
+
 
         &:hover{
           background-color: $color-grey-dark-3;
           border:none;
           color: $color-grey-light-2;
+          font-size: 1.1rem;
           backface-visibility: hidden;
         }
     }
 
-    &:hover {
-        font-size: 1.1rem;
+    &__small-primary{
+        color: $color-grey-light-1;
+        background-color: $color-primary;
+        background-image: none;
+        border-color: $color-primary;
+        padding: .2rem .5rem;
+        font-size: .9rem;
+        opacity:.70;
+        transition: all .2s ease;
         backface-visibility: hidden;
+
+        &:hover{
+          opacity:1;
+          font-size: 1rem;
+          backface-visibility: hidden;
+        }
+
+        &:hover > *{
+            height: 1.1rem;
+            width: 1.1rem;
+
+        }
+    }
+
+    &__small-secondary{
+        color: $color-grey-light-1;
+        background-color: $color-secondary;
+        background-image: none;
+        border-color: $color-secondary;
+        padding: .2rem .5rem;
+        font-size: .9rem;
+        opacity:.70;
+        transition: all .2s ease;
+        backface-visibility: hidden;
+
+        &:hover{
+          opacity:1;
+          font-size: 1rem;
+          backface-visibility: hidden;
+        }
+
+        &:hover > *{
+            height: 1.1rem;
+            width: 1.1rem;
+            
+        }
+    }
+
+    &__small-tertiary{
+
     }
 }
