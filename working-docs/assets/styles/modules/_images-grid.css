@@ -1,7 +1,7 @@
-.grid{
+.images-grid{
   display: grid;
   grid-template-rows: minmax(220px, 220px);
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns:repeat(3, 1fr);
   grid-gap: 2rem;
   grid-auto-rows: minmax(220px, 220px);
   align-items: center;
@@ -16,27 +16,43 @@
     grid-template-columns:repeat(2, 1fr);
     grid-template-rows: minmax(auto, auto);
     grid-auto-rows: minmax(auto, auto);
-    
 
+    & > :nth-last-child(n+3){
+      margin-bottom: -2rem;
+    }
   }
 
   @mixin atSmall{
     grid-template-columns:1fr;
-    grid-template-rows: 100%;
-    grid-auto-rows: 100%;
+    grid-template-rows: auto;
+    grid-auto-rows: auto;
     grid-gap: 0;
+
+    & > :nth-last-child(n+3){
+      margin-bottom: 0;
+    }
   }
 
-
-
   &__item{
-        position: relative;
-    &--imgs{
+      min-width: 22vw;
+      width:100%;
+      position: relative;
 
+    &--imgs{
+        min-width:100%;
 
       &-link{
-
+        min-width:100%;
+        background-color: lightblue;
+        box-shadow: 0 0.2rem .5rem rgba(0, 0, 0, 0.3);
         height: 220px;
+        transition: transform .2s ease;
+
+        &:hover{
+          cursor: zoom-in;
+          transform: scale(1.1);
+        }
+
         @mixin atLarge{
             height: 190px;
         }
@@ -46,28 +62,45 @@
         }
 
         @mixin atSmall{
-          height: 100%;
+          min-height: 320px;
+        }
+
+        @mixin atSmallest{
+          min-height: 180px;
         }
 
       }
       & img {
         width: 100%;
+        vertical-align: bottom;
         height: 100%;
         object-fit: cover;
       }
     }
 
+    @mixin atLarge{
+      min-width: 25vw;
+      width:100%;
+    }
+
     @mixin atMedium{
+      min-width: 35vw;
+      width:100%;
 
       & hr{
         display:block;
       }
     }
+
+    @mixin atSmall{
+      min-width: 70vw;
+      width:100%;
+    }
   }
 }
 
 .like__download{
-  opasity:1;
+  opacity:1;
   z-index: 1;
   position: absolute;
   bottom: 30px;
@@ -78,17 +111,16 @@
   justify-content: center;
 
   &--likes-link{
-
-    margin-right: 1rem;
+    margin-right: .5rem;
   }
 
   &--download-link{
-
-    margin-left: 1rem;
+    margin-left: .5rem;
   }
 
   @mixin atMedium{
-    opasity:1;
+    margin-top: 1.3rem;
+    opacity:1;
     z-index: 1;
     position: relative;
     left:0;

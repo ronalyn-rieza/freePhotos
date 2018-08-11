@@ -1,0 +1,72 @@
+.modal {
+  position: fixed;
+  z-index: 5;
+  background-color: rgba($color-grey-dark-3, .9);
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(1.2);
+  transition: all .3s ease-out;
+
+  &--is-visible {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1);
+  }
+
+  &__content {
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    left: 10%;
+    right: 10%;
+    transform: translateY(-50%);
+
+    & img{
+      width:80%;
+
+      @mixin atMedium{
+        width:100%;
+      }
+    }
+
+      @mixin atMedium{
+        left: 0;
+        right: 0;
+      }
+  }
+
+  &__close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 1.5rem;
+    padding: 0 .4rem;
+    color: $color-grey-light-1;
+    cursor: pointer;
+    border-radius: .25rem;
+    background-color: $color-grey-dark-3;
+
+    &:hover {
+      color: $color-grey-light-1;
+      background-color: $color-secondary;
+      border: 1px solid $color-grey-dark-3;
+      border-radius: .25rem;
+    }
+
+    @mixin atMedium{
+      font-size: 1.3rem;
+    }
+
+    @mixin atSmall{
+      font-size: 1rem;
+    }
+
+    @mixin atSmallest{
+      font-size: .9rem;
+    }
+  }
+}

@@ -363,14 +363,8 @@ body {
     background: url("../../assets/images/logos/sand_pattern_red_overlay.jpg") no-repeat center center fixed;
     background-size: cover;
     min-height: 100vh;
-}
 
-@media only screen and (max-width: 47.9em) {
-
-body {
-      margin-top: 6.5rem
 }
-  }
 
 ul li{
   list-style: none;
@@ -380,9 +374,6 @@ a {
   display: inline-block;
   text-decoration: none;
   color: #333;
-}
-
-a svg{
 
 }
 
@@ -400,10 +391,6 @@ hr{
 small{
   font-size: 80%;
   font-weight: 400;
-}
-
-img{
-
 }
 
 .container{
@@ -465,65 +452,47 @@ img{
   width: 1.6rem;
 }
 
-.icon-big--primary{
-    fill: #007791;
-  }
-
-.icon-big--secondary{
-    fill: #dc3545;
-  }
-
-.icon-big--tertiary{
-    fill: #333;
-  }
-
 .icon-small{
-
   vertical-align:baseline;
   height: 1.2rem;
   width: 1.2rem;
+
 }
-
-.icon-small--primary{
-    fill: #007791;
-  }
-
-.icon-small--secondary{
-    fill: #dc3545;
-  }
-
-.icon-small--tertiary{
-    fill: #333;
-  }
-
-.icon-small--light{
-    fill: #f7f7f7;
-  }
 
 .icon-smallest{
   position: relative;
   top: 3px;
-  vertical-align:;
   height: 1rem;
   width: 1rem;
-
-
 }
 
-.icon-smallest--primary{
-    fill: #007791;
-  }
+.icon-primary{
+  fill: #007791;
+}
 
-.icon-smallest--secondary{
-    fill: #dc3545;
-  }
+.icon-secondary{
+  fill: #dc3545;
+}
 
-.icon-smallest--tertiary{
-    fill: #333;
-  }
+.icon-dark{
+  fill: #333;
+}
 
-.icon-smallest--light{
-    fill: #f7f7f7;
+.icon-light{
+  fill: #f7f7f7;
+}
+
+.reveal-item {
+  opacity: 0;
+  transition: all 1.5s ease-out;
+  -webkit-transform: scale(1.15);
+          transform: scale(1.15);
+}
+
+.reveal-item--is-visible {
+    opacity: 1;
+    -webkit-transform: scale(1);
+            transform: scale(1);
   }
 
 .header{
@@ -764,7 +733,7 @@ img{
 
 .nav__primary--content{
         opacity:0;
-        margin-top: -336px;
+        margin-top: -339px;
         z-index: -1;
         transition: all .5s ease;
         display: flex;
@@ -804,7 +773,6 @@ img{
 .nav__secondary--content{
       opacity:1;
       transition: all .5s ease;
-
     }
 
 @media only screen and (max-width: 47.9em) {
@@ -818,13 +786,12 @@ img{
 
 .nav__secondary--content{
         opacity:0;
-        margin-top: -67px;
+        margin-top: -70px;
         z-index: -1;
         transition: all .5s ease;
         display: flex;
         flex-direction: column;
         align-items: stretch
-
     }
 
         .nav__secondary--content hr{
@@ -832,7 +799,6 @@ img{
         }
 
         .nav__secondary--content--is-visible{
-
             margin-top:5px;
             opacity:1;
             transition: all .5s ease;
@@ -840,7 +806,6 @@ img{
             flex-direction: column;
             align-items: stretch;
             z-index: 1;
-
           }
   }
 
@@ -866,7 +831,6 @@ img{
     padding-top: 1rem;
     padding-bottom: 1rem;
     margin-right:  2rem;
-
   }
 
 .btn{
@@ -883,7 +847,6 @@ img{
     line-height: 1.5;
     border: 1px solid transparent;
     border-radius: .25rem;
-    box-shadow: 0 0.2rem .5rem rgba(0, 0, 0, 0.3);
     transition: all .2s ease;
     -webkit-backface-visibility: hidden;
             backface-visibility: hidden;
@@ -894,6 +857,7 @@ img{
     background-color: transparent;
     background-image: none;
     border-color: #007791;
+    box-shadow: 0 0.2rem .5rem rgba(0, 0, 0, 0.3);
     transition: all .2s ease;
     -webkit-backface-visibility: hidden;
             backface-visibility: hidden;
@@ -914,6 +878,7 @@ img{
     background-color: transparent;
     background-image: none;
     border-color: #dc3545;
+    box-shadow: 0 0.2rem .5rem rgba(0, 0, 0, 0.3);
     padding: .375rem .75rem;
     transition: all .2s ease;
     -webkit-backface-visibility: hidden;
@@ -929,18 +894,19 @@ img{
                 backface-visibility: hidden;
       }
 
-.btn__tertiary{
+.btn__dark{
       color: #333;
       background-color: transparent;
       background-image: none;
       border-color: #333;
+      box-shadow: 0 0.2rem .5rem rgba(0, 0, 0, 0.3);
       transition: all .2s ease;
       -webkit-backface-visibility: hidden;
               backface-visibility: hidden;
       padding: .375rem .75rem;
     }
 
-.btn__tertiary:hover{
+.btn__dark:hover{
           background-color: #333;
           border:none;
           color: #eee;
@@ -954,6 +920,7 @@ img{
         background-color: #007791;
         background-image: none;
         border-color: #007791;
+        box-shadow: 0 0.2rem .5rem rgba(0, 0, 0, 0.3);
         padding: .2rem .5rem;
         font-size: .9rem;
         opacity:.70;
@@ -964,22 +931,23 @@ img{
 
 .btn__small-primary:hover{
           opacity:1;
-          font-size: 1rem;
           -webkit-backface-visibility: hidden;
                   backface-visibility: hidden;
         }
 
-.btn__small-primary:hover > *{
-            height: 1.1rem;
-            width: 1.1rem;
+@media only screen and (max-width: 61.9em) {
 
-        }
+.btn__small-primary{
+          opacity:.80
+    }
+  }
 
 .btn__small-secondary{
         color: #f7f7f7;
         background-color: #dc3545;
         background-image: none;
         border-color: #dc3545;
+        box-shadow: 0 0.2rem .5rem rgba(0, 0, 0, 0.3);
         padding: .2rem .5rem;
         font-size: .9rem;
         opacity:.70;
@@ -990,18 +958,18 @@ img{
 
 .btn__small-secondary:hover{
           opacity:1;
-          font-size: 1rem;
           -webkit-backface-visibility: hidden;
                   backface-visibility: hidden;
         }
 
-.btn__small-secondary:hover > *{
-            height: 1.1rem;
-            width: 1.1rem;
-            
-        }
+@media only screen and (max-width: 61.9em) {
 
-.btn__small-tertiary{
+.btn__small-secondary{
+          opacity:.80
+    }
+  }
+
+.btn__small-dark{
 
     }
 
@@ -1155,10 +1123,10 @@ img{
       background-color: #777;
     }
 
-.grid{
+.images-grid{
   display: grid;
   grid-template-rows: minmax(220px, 220px);
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns:repeat(3, 1fr);
   grid-gap: 2rem;
   grid-auto-rows: minmax(220px, 220px);
   align-items: center;
@@ -1167,7 +1135,7 @@ img{
 
 @media only screen and (max-width: 75em) {
 
-.grid{
+.images-grid{
       grid-template-rows: minmax(190px, 190px);
       grid-auto-rows: minmax(190px, 190px)
 }
@@ -1175,36 +1143,61 @@ img{
 
 @media only screen and (max-width: 61.9em) {
 
-.grid{
+.images-grid{
     grid-template-columns:repeat(2, 1fr);
     grid-template-rows: minmax(auto, auto);
     grid-auto-rows: minmax(auto, auto)
 }
+
+    .images-grid > :nth-last-child(n+3){
+      margin-bottom: -2rem;
+    }
   }
 
 @media only screen and (max-width: 47.9em) {
 
-.grid{
+.images-grid{
     grid-template-columns:1fr;
-    grid-template-rows: 100%;
-    grid-auto-rows: 100%;
+    grid-template-rows: auto;
+    grid-auto-rows: auto;
     grid-gap: 0
 }
+
+    .images-grid > :nth-last-child(n+3){
+      margin-bottom: 0;
+    }
   }
 
-.grid__item{
-        position: relative;
+.images-grid__item{
+      min-width: 22vw;
+      width:100%;
+      position: relative;
   }
 
-.grid__item--imgs-link{
+.images-grid__item--imgs{
+        min-width:100%;
+    }
 
+.images-grid__item--imgs-link{
+        min-width:100%;
+        background-color: lightblue;
+        box-shadow: 0 0.2rem .5rem rgba(0, 0, 0, 0.3);
         height: 220px;
+        transition: -webkit-transform .2s ease;
+        transition: transform .2s ease;
+        transition: transform .2s ease, -webkit-transform .2s ease;
 
       }
 
+.images-grid__item--imgs-link:hover{
+          cursor: zoom-in;
+          -webkit-transform: scale(1.1);
+                  transform: scale(1.1);
+        }
+
 @media only screen and (max-width: 75em) {
 
-.grid__item--imgs-link{
+.images-grid__item--imgs-link{
             height: 190px
 
       }
@@ -1212,7 +1205,7 @@ img{
 
 @media only screen and (max-width: 61.9em) {
 
-.grid__item--imgs-link{
+.images-grid__item--imgs-link{
           height: 200px
 
       }
@@ -1220,28 +1213,58 @@ img{
 
 @media only screen and (max-width: 47.9em) {
 
-.grid__item--imgs-link{
-          height: 100%
+.images-grid__item--imgs-link{
+          min-height: 320px
 
       }
   }
 
-.grid__item--imgs img {
+@media only screen and (max-width: 35.9em) {
+
+.images-grid__item--imgs-link{
+          min-height: 180px
+
+      }
+  }
+
+.images-grid__item--imgs img {
         width: 100%;
+        vertical-align: bottom;
         height: 100%;
         -o-object-fit: cover;
            object-fit: cover;
       }
 
+@media only screen and (max-width: 75em) {
+
+.images-grid__item{
+      min-width: 25vw;
+      width:100%
+  }
+  }
+
 @media only screen and (max-width: 61.9em) {
 
-      .grid__item hr{
+.images-grid__item{
+      min-width: 35vw;
+      width:100%
+  }
+
+      .images-grid__item hr{
         display:block;
       }
   }
 
+@media only screen and (max-width: 47.9em) {
+
+.images-grid__item{
+      min-width: 70vw;
+      width:100%
+  }
+  }
+
 .like__download{
-  opasity:1;
+  opacity:1;
   z-index: 1;
   position: absolute;
   bottom: 30px;
@@ -1253,22 +1276,194 @@ img{
 }
 
 .like__download--likes-link{
-
-    margin-right: 1rem;
+    margin-right: .5rem;
   }
 
 .like__download--download-link{
-
-    margin-left: 1rem;
+    margin-left: .5rem;
   }
 
 @media only screen and (max-width: 61.9em) {
 
 .like__download{
-    opasity:1;
+    margin-top: 1.3rem;
+    opacity:1;
     z-index: 1;
     position: relative;
     left:0;
     bottom: 0
 }
+  }
+
+.pagination{
+  margin-top:2.5rem;
+}
+
+.pagination__item{
+      text-align:center;
+  }
+
+.pagination__item-prev{
+        border: 1px solid #999;
+        padding: .4rem;
+        background-color: transparent;
+      }
+
+.pagination__item-prev a{
+          color: #999;
+        }
+
+.pagination__item-prev:hover{
+          border: 1px solid #333;
+        }
+
+.pagination__item-prev:hover > *{
+          color: #333;
+        }
+
+@media only screen and (max-width: 47.9em) {
+
+.pagination__item-prev{
+        padding: .2rem .5rem;
+        font-size: .9rem
+      }
+  }
+
+.pagination__item-page{
+        border: 1px solid #007791;
+        padding: .4rem;
+        background-color: #007791;
+        color:#f7f7f7;
+      }
+
+@media only screen and (max-width: 47.9em) {
+
+.pagination__item-page{
+          padding: .2rem .5rem;
+          font-size: .9rem
+      }
+  }
+
+.pagination__item-next{
+        border: 1px solid #999;
+        padding: .4rem;
+        background-color: transparent;
+      }
+
+.pagination__item-next a{
+          color: #999;
+        }
+
+.pagination__item-next:hover{
+          border: 1px solid #333;
+        }
+
+.pagination__item-next:hover > *{
+          color: #333;
+        }
+
+@media only screen and (max-width: 47.9em) {
+
+.pagination__item-next{
+          padding: .2rem .5rem;
+          font-size: .9rem
+      }
+  }
+
+@media only screen and (max-width: 61.9em) {
+
+.pagination{
+    margin-top: 1rem
+}
+  }
+
+.modal {
+  position: fixed;
+  z-index: 5;
+  background-color: rgba(51,51,51, .9);
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+  transition: all .3s ease-out;
+}
+
+.modal--is-visible {
+    opacity: 1;
+    visibility: visible;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+
+.modal__content {
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    left: 10%;
+    right: 10%;
+    -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+  }
+
+.modal__content img{
+      width:80%;
+    }
+
+@media only screen and (max-width: 61.9em) {
+
+.modal__content img{
+        width:100%
+    }
+  }
+
+@media only screen and (max-width: 61.9em) {
+
+.modal__content {
+        left: 0;
+        right: 0
+  }
+  }
+
+.modal__close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 1.5rem;
+    padding: 0 .4rem;
+    color: #f7f7f7;
+    cursor: pointer;
+    border-radius: .25rem;
+    background-color: #333;
+  }
+
+.modal__close:hover {
+      color: #f7f7f7;
+      background-color: #dc3545;
+      border: 1px solid #333;
+      border-radius: .25rem;
+    }
+
+@media only screen and (max-width: 61.9em) {
+
+.modal__close {
+      font-size: 1.3rem
+  }
+  }
+
+@media only screen and (max-width: 47.9em) {
+
+.modal__close {
+      font-size: 1rem
+  }
+  }
+
+@media only screen and (max-width: 35.9em) {
+
+.modal__close {
+      font-size: .9rem
+  }
   }

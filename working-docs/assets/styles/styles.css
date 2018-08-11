@@ -2,7 +2,9 @@
 @import "base/_variables";
 @import "base/_mixins.css";
 @import "base/_global.css";
-@import "modules/_header.css";
+@import "modules/_nav.css";
 @import "modules/_buttons.css";
 @import "modules/_menubar.css";
-@import "modules/_images.css";
+@import "modules/_images-grid.css";
+@import "modules/_pagination.css";
+@import "modules/_modal.css";
