@@ -12,6 +12,7 @@
   padding-bottom: 1rem;
   position: relative;
 
+
   &--logo-link{
     @mixin atMedium{
       width:30%;
@@ -123,7 +124,7 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        box-shadow: 0 0.2rem .5rem rgba(0, 0, 0, 0.3);
+        box-shadow: 0 0.1rem .3rem rgba(0, 0, 0, 0.2);
         transition: all .3s ease-in-out;
 
         &:hover{
@@ -207,7 +208,7 @@
       }
       @mixin atMedium{
         opacity:0;
-        margin-top: -339px;
+        margin-top: -345px;
         z-index: -1;
         transition: all .5s ease;
         display: flex;
@@ -253,7 +254,7 @@
 
       @mixin atSmall{
         opacity:0;
-        margin-top: -70px;
+        margin-top: -71px;
         z-index: -1;
         transition: all .5s ease;
         display: flex;

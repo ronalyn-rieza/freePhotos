@@ -38,8 +38,14 @@
       width:100%;
       position: relative;
 
+
     &--imgs{
         min-width:100%;
+
+        &:hover > .images-grid__item--imgs-link{
+          transform: scale(1.1);
+          cursor: zoom-in;
+        }
 
       &-link{
         min-width:100%;
@@ -47,11 +53,6 @@
         box-shadow: 0 0.2rem .5rem rgba(0, 0, 0, 0.3);
         height: 220px;
         transition: transform .2s ease;
-
-        &:hover{
-          cursor: zoom-in;
-          transform: scale(1.1);
-        }
 
         @mixin atLarge{
             height: 190px;
@@ -100,15 +101,17 @@
 }
 
 .like__download{
-  opacity:1;
-  z-index: 1;
+  opacity:0;
+  z-index: -2;
   position: absolute;
-  bottom: 30px;
+  bottom: 10px;
   left:25%;
   right:25%;
   display: flex;
   align-items: center;
   justify-content: center;
+
+
 
   &--likes-link{
     margin-right: .5rem;
@@ -126,4 +129,26 @@
     left:0;
     bottom: 0;
   }
+
+  &--visible{
+    opacity:1;
+    z-index: 1;
+  }
+}
+
+.modal__like-download{
+  position: absolute;
+  bottom: 20px;
+  left:15%;
+  right: 35%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @mixin atMedium{
+    bottom: 15px;
+    left:25%;
+    right: 25%;
+  }
+
 }

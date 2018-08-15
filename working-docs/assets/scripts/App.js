@@ -64,3 +64,108 @@ if(sMenuBar){
     }
   });
 }
+
+const imageItem = document.querySelectorAll('.images-grid__item');
+
+//looping to all images with class of images-grid__item
+for (var i = 0; i < imageItem.length; i++) {
+  //adding mouseover event listener
+  imageItem[i].addEventListener('mouseover', el => {
+    //finding div with class name images-grid__item
+    const dl =  el.target.closest('.images-grid__item');
+    //checking if element images-grid__item has found
+    if(dl){
+      //selecting like download class of imageItem[i]
+      const ld = dl.querySelector('.like__download');
+
+      if(ld){
+        //adding like__download--visible class to like__download
+        ld.classList.add('like__download--visible');
+      }
+    }
+  });
+  //adding mouseleave event listener
+  imageItem[i].addEventListener('mouseleave', el => {
+    //finding div with class name images-grid__item
+    const dl =  el.target.closest('.images-grid__item');
+    //checking if element images-grid__item has found
+    if(dl){
+      //selecting like download class of imageItem[i]
+      const ld = dl.querySelector('.like__download');
+
+      if(ld){
+          //adding like__download--visible class to like__download
+        ld.classList.remove('like__download--visible');
+      }
+    }
+  });
+}
+
+const openModal = document.querySelectorAll('.open-modal');
+//looping to all elements with class of open-modal
+for (var i = 0; i < openModal.length; i++) {
+  //adding click event listener
+  openModal[i].addEventListener('click', el => {
+    //preventing anchor tag from reloading
+      el.preventDefault();
+    //finding div with class of modal
+    const modalClass = document.getElementsByClassName('modal')[0];
+
+    if(modalClass){
+      //if div with class of modal has been found add class of modal is visible
+      modalClass.classList.add('modal--is-visible');
+      //then look for tag name body
+      const bodyTag = document.getElementsByTagName('body')[0];
+      if(bodyTag){
+        //if tag name body has found add class of body
+        bodyTag.classList.add('body');
+      }
+    }
+  });
+}
+
+const closeModal = document.querySelector('.modal__close');
+if(closeModal){
+  //if element with class of modal__close add click event
+  closeModal.addEventListener('click', el => {
+    //selecting the element with class of modal__close
+    const close = el.target.closest('.modal__close');
+    if(close){
+      //if it has been selected look for elements with class name of modal
+      const classModal = document.getElementsByClassName('modal')[0];
+      //check if has class of modal--is-visible
+      const modalIsVisible = classModal.classList.contains('modal--is-visible');
+      if(modalIsVisible){
+        //if it has remove the class modal--is-visible
+        classModal.classList.remove('modal--is-visible');
+        //then look for html body tag
+        const bodyNameTag = document.getElementsByTagName('body')[0];
+        if(bodyNameTag){
+          //if its found remove the class of body
+          bodyNameTag.classList.remove('body');
+        }
+      }
+    }
+  });
+}
+
+document.body.onkeyup = el => {
+  //getting which has been on key up
+  const key = el.which || el.keyCode;
+  if (key == 27) {
+    //if it is escape key look for elements with class of modal
+    const modalDiv = document.getElementsByClassName('modal')[0];
+    //then check if it has class of modal--is-visible
+    const ItIsvisible = modalDiv.classList.contains('modal--is-visible');
+    if(ItIsvisible){
+      //if it has remove the class modal--is-visible
+      modalDiv.classList.remove('modal--is-visible');
+      //then look for html body tag
+      const htmlBodyTag = document.getElementsByTagName('body')[0];
+      if(htmlBodyTag){
+        //if its found remove the class body
+        htmlBodyTag.classList.remove('body');
+      }
+    }
+  }
+};

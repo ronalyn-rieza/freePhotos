@@ -1,6 +1,5 @@
 .modal {
   position: fixed;
-  z-index: 5;
   background-color: rgba($color-grey-dark-3, .9);
   top: 0;
   bottom: 0;
@@ -12,9 +11,11 @@
   transition: all .3s ease-out;
 
   &--is-visible {
+    z-index: 200;
     opacity: 1;
     visibility: visible;
     transform: scale(1);
+
   }
 
   &__content {
@@ -34,6 +35,7 @@
     }
 
       @mixin atMedium{
+        max-height: 100%;
         left: 0;
         right: 0;
       }

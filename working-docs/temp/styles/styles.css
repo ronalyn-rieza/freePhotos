@@ -354,6 +354,7 @@ html {
 }
 
 body {
+
     margin-top: 6.3rem;
     font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
     font-size: 1rem;
@@ -364,6 +365,10 @@ body {
     background-size: cover;
     min-height: 100vh;
 
+}
+
+.body{
+  overflow:hidden;
 }
 
 ul li{
@@ -639,7 +644,7 @@ small{
         display: flex;
         align-items: center;
         justify-content: space-between;
-        box-shadow: 0 0.2rem .5rem rgba(0, 0, 0, 0.3);
+        box-shadow: 0 0.1rem .3rem rgba(0, 0, 0, 0.2);
         transition: all .3s ease-in-out;
       }
 
@@ -733,7 +738,7 @@ small{
 
 .nav__primary--content{
         opacity:0;
-        margin-top: -339px;
+        margin-top: -345px;
         z-index: -1;
         transition: all .5s ease;
         display: flex;
@@ -786,7 +791,7 @@ small{
 
 .nav__secondary--content{
         opacity:0;
-        margin-top: -70px;
+        margin-top: -71px;
         z-index: -1;
         transition: all .5s ease;
         display: flex;
@@ -916,7 +921,7 @@ small{
         }
 
 .btn__small-primary{
-        color: #f7f7f7;
+        color: #f8f9fa;
         background-color: #007791;
         background-image: none;
         border-color: #007791;
@@ -938,12 +943,24 @@ small{
 @media only screen and (max-width: 61.9em) {
 
 .btn__small-primary{
-          opacity:.80
+
+          background-color: rgba(0,119,145, 0.6);
+
+          box-shadow: 0 0.2rem .5rem rgba(0, 0, 0, 0.1);
+          opacity:1;
+          padding: .2rem .3rem;
+          font-size: .8rem
     }
+
+          .btn__small-primary > *{
+
+              height: .9rem;
+              width: .9rem;
+          }
   }
 
 .btn__small-secondary{
-        color: #f7f7f7;
+        color: #f8f9fa;
         background-color: #dc3545;
         background-image: none;
         border-color: #dc3545;
@@ -965,8 +982,19 @@ small{
 @media only screen and (max-width: 61.9em) {
 
 .btn__small-secondary{
-          opacity:.80
+        background-color: rgba(220,53,69, 0.6);
+
+        box-shadow: 0 0.2rem .5rem rgba(0, 0, 0, 0.1);
+        opacity:.90;
+        padding: .2rem .3rem;
+        font-size: .8rem
     }
+
+            .btn__small-secondary > *{
+
+                height: .9rem;
+                width: .9rem;
+            }
   }
 
 .btn__small-dark{
@@ -1178,6 +1206,12 @@ small{
         min-width:100%;
     }
 
+.images-grid__item--imgs:hover > .images-grid__item--imgs-link{
+          -webkit-transform: scale(1.1);
+                  transform: scale(1.1);
+          cursor: zoom-in;
+        }
+
 .images-grid__item--imgs-link{
         min-width:100%;
         background-color: lightblue;
@@ -1188,12 +1222,6 @@ small{
         transition: transform .2s ease, -webkit-transform .2s ease;
 
       }
-
-.images-grid__item--imgs-link:hover{
-          cursor: zoom-in;
-          -webkit-transform: scale(1.1);
-                  transform: scale(1.1);
-        }
 
 @media only screen and (max-width: 75em) {
 
@@ -1264,10 +1292,10 @@ small{
   }
 
 .like__download{
-  opacity:1;
-  z-index: 1;
+  opacity:0;
+  z-index: -2;
   position: absolute;
-  bottom: 30px;
+  bottom: 10px;
   left:25%;
   right:25%;
   display: flex;
@@ -1292,6 +1320,32 @@ small{
     position: relative;
     left:0;
     bottom: 0
+}
+  }
+
+.like__download--visible{
+    opacity:1;
+    z-index: 1;
+  }
+
+.modal__like-download{
+  position: absolute;
+  bottom: 20px;
+  left:15%;
+  right: 35%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+@media only screen and (max-width: 61.9em) {
+
+.modal__like-download{
+    bottom: 15px;
+    left:25%;
+    right: 25%
+
 }
   }
 
@@ -1379,7 +1433,6 @@ small{
 
 .modal {
   position: fixed;
-  z-index: 5;
   background-color: rgba(51,51,51, .9);
   top: 0;
   bottom: 0;
@@ -1393,10 +1446,12 @@ small{
 }
 
 .modal--is-visible {
+    z-index: 200;
     opacity: 1;
     visibility: visible;
     -webkit-transform: scale(1);
             transform: scale(1);
+
   }
 
 .modal__content {
@@ -1423,6 +1478,7 @@ small{
 @media only screen and (max-width: 61.9em) {
 
 .modal__content {
+        max-height: 100%;
         left: 0;
         right: 0
   }

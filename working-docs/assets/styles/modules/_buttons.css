@@ -70,7 +70,7 @@
     }
 
     &__small-primary{
-        color: $color-grey-light-1;
+        color: $color-light;
         background-color: $color-primary;
         background-image: none;
         border-color: $color-primary;
@@ -87,12 +87,24 @@
         }
 
         @mixin atMedium{
-          opacity:.80;
+
+          background-color: rgba($color-primary, 0.6);
+
+          box-shadow: 0 0.2rem .5rem rgba(0, 0, 0, 0.1);
+          opacity:1;
+          padding: .2rem .3rem;
+          font-size: .8rem;
+
+          & > *{
+
+              height: .9rem;
+              width: .9rem;
+          }
         }
     }
 
     &__small-secondary{
-        color: $color-grey-light-1;
+        color: $color-light;
         background-color: $color-secondary;
         background-image: none;
         border-color: $color-secondary;
@@ -109,7 +121,18 @@
         }
 
         @mixin atMedium{
-          opacity:.80;
+        background-color: rgba($color-secondary, 0.6);
+
+        box-shadow: 0 0.2rem .5rem rgba(0, 0, 0, 0.1);
+        opacity:.90;
+        padding: .2rem .3rem;
+        font-size: .8rem;
+
+            & > *{
+
+                height: .9rem;
+                width: .9rem;
+            }
         }
     }
 
