@@ -1,5 +1,5 @@
 .header{
-  background: rgba($color-light, 0.8);
+  background: rgba($color-light, 0.9);
   position: fixed;
   top:0;
   width: 100%;
@@ -32,33 +32,28 @@
 
       &__link{
         margin-left: 1rem;
-        transition: all .2s ease-in-out;
         backface-visibility: hidden;
+        transition: all .2s ease;
 
         &:hover{
+          backface-visibility: hidden;
           font-size: 1.1rem;
           color:$color-primary;
-          border-bottom: 1px solid $color-secondary;
-          backface-visibility: hidden;
         }
 
         @mixin atMedium{
           padding-bottom: 1rem;
 
-          &:hover{
-              border-bottom: none;
-          }
         }
 
         &-profile{
           margin-left: auto;
-          transition: all .2s ease-in-out;
+          transition: all .2s ease;
           backface-visibility: hidden;
 
           &:hover{
             font-size: 1.1rem;
             color:$color-primary;
-            border-bottom: 1px solid $color-secondary;
             backface-visibility: hidden;
           }
 
@@ -69,24 +64,18 @@
           @mixin atMedium{
             margin-left:1rem;
             padding-bottom: 1rem;
-
-            &:hover{
-                border-bottom: none;
-            }
           }
         }
 
         &-logout{
           margin-left: 1rem;
-          transition: all .2s ease-in-out;
+          transition: all .2s ease;
           backface-visibility: hidden;
 
           &:hover{
             font-size: 1.1rem;
             color:$color-secondary;
-            border-bottom: 1px solid $color-primary;
             backface-visibility: hidden;
-
           }
 
           &:hover > *{
@@ -96,10 +85,6 @@
           @mixin atMedium{
             margin-left:1rem;
             padding-bottom: 1rem;
-
-            &:hover{
-                border-bottom: none;
-            }
           }
         }
 

@@ -53,6 +53,15 @@ small{
   font-weight: 400;
 }
 
+form{
+  display: block;
+  margin-top: 0em;
+
+  & textarea {
+    resize: none;
+  }
+}
+
 .container{
   max-width:80%;
   padding-right: 1rem;
@@ -77,21 +86,39 @@ small{
 .mr-medium{
   margin-right: 1rem !important;
 }
+.mb-medium{
+  margin-bottom: 1rem !important;
+}
 
 .ml-medium{
   margin-left: 1rem !important;
+}
+
+.mt-medium{
+  margin-top: 1rem !important;
 }
 
 .text-muted{
   color:$color-grey-dark;
 }
 
+.color-light{
+  color: $color-grey-light-1;
+}
+
+.full-width{
+  width: 100%;
+}
+
 .section{
-  background-color: $color-grey-light-1;
   padding-top: 2.5rem;
   padding-bottom: 2.5rem;
-
-
+  &--light{
+    background-color: $color-grey-light-1;
+  }
+  &--primary{
+    background-color: $color-primary;
+  }
 }
 
 .icon-big{

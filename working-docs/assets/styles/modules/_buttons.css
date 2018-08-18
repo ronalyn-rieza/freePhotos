@@ -12,6 +12,10 @@
     transition: all .2s ease;
     backface-visibility: hidden;
 
+    &:hover{
+        cursor: pointer;
+    }
+
     &__primary{
     color: $color-primary;
     background-color: transparent;
@@ -24,9 +28,7 @@
 
       &:hover{
         background-color: $color-primary;
-        border:none;
         color: $color-grey-light-2;
-        font-size: 1.1rem;
         backface-visibility: hidden;
       }
     }
@@ -43,9 +45,7 @@
 
       &:hover{
         background-color: $color-secondary;
-        border:none;
         color: $color-grey-light-2;
-        font-size: 1.1rem;
         backface-visibility: hidden;
       }
     }
@@ -62,9 +62,24 @@
 
         &:hover{
           background-color: $color-grey-dark-3;
-          border:none;
           color: $color-grey-light-2;
-          font-size: 1.1rem;
+          backface-visibility: hidden;
+        }
+    }
+
+    &__light{
+      color: $color-grey-light-2;
+      background-color: transparent;
+      background-image: none;
+      border-color: $color-grey-light-2;
+      box-shadow: 0 0.2rem .5rem rgba(0, 0, 0, 0.3);
+      transition: all .2s ease;
+      backface-visibility: hidden;
+      padding: .375rem .75rem;
+
+        &:hover{
+          background-color: $color-grey-light-2;
+          color: $color-grey-dark-3;
           backface-visibility: hidden;
         }
     }
@@ -90,7 +105,7 @@
 
           background-color: rgba($color-primary, 0.6);
 
-          box-shadow: 0 0.2rem .5rem rgba(0, 0, 0, 0.1);
+          box-shadow: 0 0.2rem .5rem rgba(0, 0, 0, 0.2);
           opacity:1;
           padding: .2rem .3rem;
           font-size: .8rem;
@@ -123,13 +138,12 @@
         @mixin atMedium{
         background-color: rgba($color-secondary, 0.6);
 
-        box-shadow: 0 0.2rem .5rem rgba(0, 0, 0, 0.1);
+        box-shadow: 0 0.2rem .5rem rgba(0, 0, 0, 0.2);
         opacity:.90;
         padding: .2rem .3rem;
         font-size: .8rem;
 
             & > *{
-
                 height: .9rem;
                 width: .9rem;
             }

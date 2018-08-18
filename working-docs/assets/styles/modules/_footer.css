@@ -1,0 +1,63 @@
+.footer{
+  color:$color-grey-light-1;
+  font-weight: 300;
+  
+  & h6{
+    color:$color-grey-dark-3;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 400;
+  }
+
+  &__content{
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+
+    &--about{
+      padding: 1rem;
+      width:48%;
+      font-size: 1.2rem;
+      border: 1px solid rgba(0,0,0,.125);
+      border-radius: .25rem;
+      text-align: justify;
+
+      @mixin atSmall{
+        width:100%;
+      }
+    }
+
+    &--contact{
+      padding: 1rem;
+      width:48%;
+      border: 1px solid rgba(0,0,0,.125);
+      border-radius: .25rem;
+
+      @mixin atSmall{
+        margin-top: 2rem;
+        width:100%;
+      }
+    }
+
+    @mixin atSmall{
+      flex-direction: column;
+      align-items: stretch;
+    }
+  }
+
+  &__copyright{
+    font-size:.8rem;
+    text-align: center;
+    margin-top: 3rem;
+    padding: .7rem;
+    border-top: 1px solid rgba(0,0,0,.125);
+    border-bottom: 1px solid rgba(0,0,0,.125);
+
+    & a{
+      font-weight: 400;
+      &:hover{
+        color: $color-grey-light-1;
+      }
+    }
+  }
+}

@@ -38,7 +38,6 @@
       width:100%;
       position: relative;
 
-
     &--imgs{
         min-width:100%;
 
@@ -69,8 +68,8 @@
         @mixin atSmallest{
           min-height: 180px;
         }
-
       }
+      
       & img {
         width: 100%;
         vertical-align: bottom;
@@ -134,21 +133,4 @@
     opacity:1;
     z-index: 1;
   }
-}
-
-.modal__like-download{
-  position: absolute;
-  bottom: 20px;
-  left:15%;
-  right: 35%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  @mixin atMedium{
-    bottom: 15px;
-    left:25%;
-    right: 25%;
-  }
-
 }

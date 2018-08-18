@@ -71,4 +71,20 @@
       font-size: .9rem;
     }
   }
+
+  &__like-download{
+    position: absolute;
+    bottom: 20px;
+    left:15%;
+    right: 35%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @mixin atMedium{
+      bottom: 15px;
+      left:25%;
+      right: 25%;
+    }
+  }
 }
