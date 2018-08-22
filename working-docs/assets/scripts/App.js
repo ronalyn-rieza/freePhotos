@@ -169,3 +169,80 @@ document.body.onkeyup = el => {
     }
   }
 };
+
+
+const showPass = document.querySelectorAll('.form__group--password-show');
+//looping to all elements with class of form__group--password-show
+for (var i = 0; i < showPass.length; i++) {
+  //adding click event listener
+  showPass[i].addEventListener('click', el => {
+    //selecting element with calss of form__group--password-show
+    const showButton = el.target.closest('.form__group--password-show');
+    //checking if it has class of form__group--password-show-hide
+    const buttonHide = showButton.classList.contains('form__group--password-show-hide');
+
+    if(!buttonHide){
+      //if its not true add the class form__group--password-show-hide
+      showButton.classList.add('form__group--password-show-hide');
+      //then select the element with class name of form__group--password-hide
+      const hideButton = document.getElementsByClassName('form__group--password-hide')[0];
+
+      if(hideButton){
+        //if the element with class name of form__group--password-hide has been found check if
+        // it has class of form__group--password-hide-show
+        const buttonShow = hideButton.classList.contains('form__group--password-hide-show');
+
+        if(!buttonShow){
+          //if it doesnt have class of form__group--password-hide-show
+          //add the class form__group--password-hide-show
+          hideButton.classList.add('form__group--password-hide-show');
+          //then find all the input with type of password
+          var pwds = document.querySelectorAll('.form__input-type[type="password"]');
+            //loop through all input with type of password
+            for (var i=0;i<pwds.length;i++){
+              //change the input type to text
+              pwds[i].type = "text";
+            }
+        }
+      }
+    }
+  });
+}
+
+const hidePass = document.querySelectorAll('.form__group--password-hide');
+//looping to all elements with class of form__group--password-hide
+for (var i = 0; i < hidePass.length; i++) {
+  //adding click event listener
+  hidePass[i].addEventListener('click', el => {
+    //selecting element with class name of form__group--password-hide
+    const hide = el.target.closest('.form__group--password-hide');
+    //checking if it has class of form__group--password-hide-show
+    const button = hide.classList.contains('form__group--password-hide-show');
+
+    if(button){
+      //if it has class of form__group--password-hide-show
+      //remove the class form__group--password-hide-show
+      hide.classList.remove('form__group--password-hide-show');
+      //the look for element with class of form__group--password-show
+      const show = document.getElementsByClassName('form__group--password-show')[0];
+
+      if(show){
+        //if it has been found check if it has class of form__group--password-show-hide
+        const buttonshow = show.classList.contains('form__group--password-show-hide');
+
+        if(buttonshow){
+          //if it has class of form__group--password-show-hide
+          //remove the class
+          show.classList.remove('form__group--password-show-hide');
+          //the select all input with type of text
+          var pwds = document.querySelectorAll('.form__input-type[type="text"]');
+            //loop through all input with type of text
+            for (var i=0;i<pwds.length;i++){
+              //change the input type to password
+              pwds[i].type = "password";
+            }
+        }
+      }
+    }
+  });
+}

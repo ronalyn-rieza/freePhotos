@@ -90,12 +90,27 @@ form{
   margin-bottom: 1rem !important;
 }
 
+.mb-large{
+  margin-bottom: 2rem !important;
+}
+
+.mb-xlarge{
+  margin-bottom: 2.5rem !important;
+}
+
 .ml-medium{
   margin-left: 1rem !important;
 }
 
 .mt-medium{
   margin-top: 1rem !important;
+}
+
+.mt-large{
+  margin-top: 2rem !important;
+}
+.mt-xlarge{
+  margin-top: 2.5rem !important;
 }
 
 .text-muted{
@@ -119,6 +134,28 @@ form{
   &--primary{
     background-color: $color-primary;
   }
+}
+
+.card{
+  width: 60%;
+  background-color:  $color-grey-light-1;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1rem;
+  border-radius: .25rem;
+
+  &__heading{
+    padding: 1rem 0 2rem 0;
+    text-align:center;
+    border-bottom: 1px solid rgba(0,0,0,.1);
+    font-size: 2rem;
+    font-weight: 400;
+  }
+
+  @mixin atMedium{
+    width: 100%;
+  }
+
 }
 
 .icon-big{

@@ -1,21 +1,123 @@
-.form__item{
-    display: block;
-    width: 100%;
-    margin-top: .3rem;
-    padding: .375rem .75rem;
-    font-size: 1rem;
-    line-height: 1.5;
-    background-color: transparent;
-    border: 1px solid rgba($color-grey-dark-3, .6);
-    border-radius: .25rem;
-    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+.form{
+  &__group{
+    position: relative;
 
-    &:focus{
-      outline: none;
-      box-shadow: none;
+    &--password{
+      position: absolute;
+      right: 5px;
+      top: 4px;
+      background-color: transparent;
+      border: 1px solid rgba($color-grey-dark-3, .3);
+      border-radius: .25rem;
+      padding: .1rem .3rem;
+      vertical-align: middle;
+      color:$color-grey-dark;
 
-    &:invalid {
-      border: 1px solid rgba($color-secondary,.6);
+      &-hide{
+        opacity: 0;
+        z-index: -10;
+
+        &-show{
+          opacity: 1;
+          z-index: 1;
+        }
+      }
+
+      &-show{
+        z-index: 1;
+
+        &-hide{
+          opacity: 0;
+          z-index: -10;
+        }
+      }
+
+      &:hover{
+        cursor: pointer;
+        color: $color-primary;
+        border: 1px solid rgba($color-grey-dark-3, .5);
+      }
     }
   }
+
+  &__item{
+      display: block;
+      width: 100%;
+      margin-top: .3rem;
+      padding: .375rem .75rem;
+      font-size: 1rem;
+      line-height: 1.5;
+      background-color: transparent;
+      border: 1px solid rgba($color-grey-dark-3, .6);
+      border-radius: .25rem;
+      box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+      transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+
+      &:focus{
+        outline: none;
+        box-shadow: none;
+
+      &:invalid {
+        border: 1px solid rgba($color-secondary,.6);
+      }
+    }
+  }
+
+  &__forgot-pass{
+    margin-top: 2.5rem;
+    display: block;
+    text-align: center;
+    & a{
+      color: $color-secondary;
+
+      &:hover{
+        color: $color-grey-dark-3;
+      }
+    }
+  }
+
+  &__remember{
+    display: block;
+    text-align: center;
+    margin-top: 1rem;
+    font-size: .9rem;
+    margin-bottom: 1rem;
+
+      & input {
+      width: 15px;
+      height: 15px;
+      padding: 0;
+      margin:0;
+      vertical-align: bottom;
+      position: relative;
+      top: -3px;
+
+      &:hover{
+        cursor: pointer;
+      }
+    }
+  }
+
+  &__button{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+
+    &-item{
+      width:48%;
+      margin-top: 1rem;
+
+      @mixin atSmall{
+        width:100%;
+      }
+    }
+
+    @mixin atSmall{
+      flex-direction: column;
+      align-items: stretch;
+    }
+  }
+
+
 }
