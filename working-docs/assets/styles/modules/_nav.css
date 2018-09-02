@@ -12,10 +12,52 @@
   padding-bottom: 1rem;
   position: relative;
 
-
   &--logo-link{
+    width: 13%;
+
+    &:hover > h1 .icon-small{
+        fill: $color-secondary;
+    }
+
+    &:hover > h1 .nav--logo-link-ver-text{
+        color: $color-primary;
+    }
+
+    &:hover > h1 .nav--logo-link-dot{
+        color: $color-primary;
+    }
+
+    & h1{
+      font-weight: 400;
+      font-size: 1.4rem;
+    }
+
+    &-ver-text{
+      writing-mode: vertical-lr;
+      text-orientation: upright;
+      font-size: .5rem;
+      letter-spacing: -5px;
+      color: $color-secondary;
+      line-height: .5;
+    }
+
+    &-dot{
+      color: $color-secondary;
+      font-size: 2rem;
+    }
+
+    &-io{
+      font-size: 1rem;
+      font-weight: 500;
+    }
+
     @mixin atMedium{
-      width:30%;
+      width: 30%;
+      margin-right:  0;
+    }
+
+    @mixin atSmallest{
+      width: 45%;
     }
   }
 
@@ -39,11 +81,6 @@
           backface-visibility: hidden;
           font-size: 1.1rem;
           color:$color-primary;
-        }
-
-        @mixin atMedium{
-          padding-bottom: 1rem;
-
         }
 
         &-profile{
@@ -183,17 +220,17 @@
           width: 100%;
 
           &:hover{
-              width: 100%;
+            width: 100%;
           }
 
           &:focus{
-              width: 100%;
+            width: 100%;
           }
         }
       }
       @mixin atMedium{
         opacity:0;
-        margin-top: -345px;
+        margin-top: -324px;
         z-index: -1;
         transition: all .5s ease;
         display: flex;
@@ -266,21 +303,5 @@
       flex-direction: column;
       align-items: stretch;
     }
-  }
-
-  &__web-name-text{
-    position:absolute;
-    top: 0;
-    left: 0;
-    margin:0;
-    padding: 0;
-    text-indent: -9999px;
-    display: inline-block;
-  }
-
-  &__web-name-logo{
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-    margin-right:  2rem;
   }
 }

@@ -1,11 +1,72 @@
 .form{
+
+  &__input--group{
+      position: relative;
+
+      &-password{
+        position: absolute;
+        right: 5px;
+        top: 4px;
+        background-color: transparent;
+        border: 1px solid rgba($color-grey-dark-3, .3);
+        border-radius: .25rem;
+        padding: .1rem .3rem;
+        vertical-align: middle;
+        color:$color-grey-dark;
+
+        &:hover{
+          cursor: pointer;
+          color: $color-primary;
+          border: 1px solid rgba($color-grey-dark-3, .5);
+        }
+      }
+  }
+
+  &__item{
+      display: block;
+      width: 100%;
+      margin-top: .3rem;
+      padding: .375rem .75rem;
+      font-size: 1rem;
+      line-height: 1.5;
+      background-color: transparent;
+      border: 1px solid rgba($color-grey-dark-3, .6);
+      border-radius: .25rem;
+      box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+      transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+
+      &:focus{
+        outline: none;
+        box-shadow: none;
+
+      &:invalid {
+        border: 1px solid rgba($color-secondary,.6);
+      }
+    }
+  }
+
   &__group{
-    position: relative;
+
+    display:flex;
+    align-items: baseline;
+    margin-bottom: 1.5rem;
+
+    &--input{
+      margin-right: .4rem;
+      width: 95%;
+    }
+
+    &--info{
+      position: relative;
+      border: 1px solid rgba($color-grey-dark-3, .3);
+      border-radius: .25rem;
+      padding: .4rem;
+    }
 
     &--password{
       position: absolute;
       right: 5px;
-      top: 4px;
+      top: 9px;
       background-color: transparent;
       border: 1px solid rgba($color-grey-dark-3, .3);
       border-radius: .25rem;
@@ -36,29 +97,6 @@
         cursor: pointer;
         color: $color-primary;
         border: 1px solid rgba($color-grey-dark-3, .5);
-      }
-    }
-  }
-
-  &__item{
-      display: block;
-      width: 100%;
-      margin-top: .3rem;
-      padding: .375rem .75rem;
-      font-size: 1rem;
-      line-height: 1.5;
-      background-color: transparent;
-      border: 1px solid rgba($color-grey-dark-3, .6);
-      border-radius: .25rem;
-      box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
-      transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-
-      &:focus{
-        outline: none;
-        box-shadow: none;
-
-      &:invalid {
-        border: 1px solid rgba($color-secondary,.6);
       }
     }
   }
@@ -117,6 +155,84 @@
       flex-direction: column;
       align-items: stretch;
     }
+  }
+
+  &__effect--visible{
+    opacity: .3;
+    pointer-events: none;
+  }
+}
+
+
+.popover{
+  background-color: $color-grey-light-1;
+  position: absolute;
+  width: 300px;
+  height: auto;
+  left: -30px;
+  border: 1px solid $color-grey-dark;
+  border-radius: .25rem;
+  margin-top:3rem;
+  z-index: -10;
+  visibility: hidden;
+  opacity: 0;
+
+  @mixin  atLarge{
+  right: -30px;
+  left: auto;
+  }
+
+  &::before{
+  content:"";
+   position: absolute;
+   height: 0px;
+   width: 0px;
+   top: -30px;
+   left: 28px;
+   border-width: 15px;
+   border-color: transparent transparent $color-grey-dark-2 transparent;
+   border-style: solid;
+
+   @mixin  atLarge{
+   right: 28px;
+   left: auto;
+   }
+
+  }
+
+
+  &__close{
+    border: 1px solid rgba($color-grey-dark-3, .2);
+    padding: 0 .3rem 0 .3rem;
+    border-radius: .25rem;
+    &:hover{
+      cursor:pointer;
+      color: $color-secondary;
+    }
+  }
+
+  &__title{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-weight: 500;
+    background-color:rgba($color-grey-dark-2, .5);
+    padding: .8rem;
+
+  }
+
+  &__content{
+    padding: .8rem;
+    font-size: .9rem;
+  }
+
+
+  &__visible{
+    transition: all .5s ease;
+    z-index: 10;
+    visibility:visible;
+    opacity: 1;
+    margin-top:1rem;
   }
 
 

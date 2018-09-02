@@ -1,7 +1,7 @@
 .footer{
   color:$color-grey-light-1;
   font-weight: 300;
-  
+
   & h6{
     color:$color-grey-dark-3;
     text-align: center;
@@ -28,7 +28,6 @@
     }
 
     &--contact{
-      padding: 1rem;
       width:48%;
       border: 1px solid rgba(0,0,0,.125);
       border-radius: .25rem;

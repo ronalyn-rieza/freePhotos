@@ -45,13 +45,6 @@
   }
 }
 
-@define-mixin clearfix {
-  &::after {
-    content: "";
-    clear: both;
-    display: table;
-  }
-}
 @define-mixin absCenter {
     position: absolute;
     top: 50%;

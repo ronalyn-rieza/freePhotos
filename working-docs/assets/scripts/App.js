@@ -170,42 +170,33 @@ document.body.onkeyup = el => {
   }
 };
 
+const firstLetterCap = document.querySelectorAll('.form__input--fistLetter-cap');
+//looping to all element with class of form__input--fistLetter-cap
+for (var i = 0; i < firstLetterCap.length; i++) {
+  //adding keup event listener
+  firstLetterCap[i].addEventListener('keyup', el => {
+    const caps =  el.target.closest('.form__input--fistLetter-cap');
+      //getting the value of selected element
+      const value =  caps.value;
+      //change the first letter to Uppercase
+      const firstLetterCapValue = value.charAt(0).toUpperCase() + value.slice(1);
+      //changing the value of selected elements
+      caps.value = firstLetterCapValue;
+  });
+}
 
 const showPass = document.querySelectorAll('.form__group--password-show');
 //looping to all elements with class of form__group--password-show
 for (var i = 0; i < showPass.length; i++) {
   //adding click event listener
   showPass[i].addEventListener('click', el => {
-    //selecting element with calss of form__group--password-show
-    const showButton = el.target.closest('.form__group--password-show');
-    //checking if it has class of form__group--password-show-hide
-    const buttonHide = showButton.classList.contains('form__group--password-show-hide');
-
-    if(!buttonHide){
-      //if its not true add the class form__group--password-show-hide
-      showButton.classList.add('form__group--password-show-hide');
-      //then select the element with class name of form__group--password-hide
-      const hideButton = document.getElementsByClassName('form__group--password-hide')[0];
-
-      if(hideButton){
-        //if the element with class name of form__group--password-hide has been found check if
-        // it has class of form__group--password-hide-show
-        const buttonShow = hideButton.classList.contains('form__group--password-hide-show');
-
-        if(!buttonShow){
-          //if it doesnt have class of form__group--password-hide-show
-          //add the class form__group--password-hide-show
-          hideButton.classList.add('form__group--password-hide-show');
-          //then find all the input with type of password
-          var pwds = document.querySelectorAll('.form__input-type[type="password"]');
-            //loop through all input with type of password
-            for (var i=0;i<pwds.length;i++){
-              //change the input type to text
-              pwds[i].type = "text";
-            }
-        }
-      }
-    }
+    const selectShow =  el.target.closest('.form__group--password-show');
+    //adding class of form__group--password-show-hide to current selected element
+      selectShow.classList.add('form__group--password-show-hide');
+    //adding class of form__group--password-hide-show to next sibling of the current selected element
+      selectShow.nextElementSibling.classList.add('form__group--password-hide-show');
+    //changing input password type to text of prev sibling of the current selected element
+      selectShow.previousElementSibling.type = "text";
   });
 }
 
@@ -214,35 +205,109 @@ const hidePass = document.querySelectorAll('.form__group--password-hide');
 for (var i = 0; i < hidePass.length; i++) {
   //adding click event listener
   hidePass[i].addEventListener('click', el => {
-    //selecting element with class name of form__group--password-hide
-    const hide = el.target.closest('.form__group--password-hide');
-    //checking if it has class of form__group--password-hide-show
-    const button = hide.classList.contains('form__group--password-hide-show');
-
-    if(button){
-      //if it has class of form__group--password-hide-show
-      //remove the class form__group--password-hide-show
-      hide.classList.remove('form__group--password-hide-show');
-      //the look for element with class of form__group--password-show
-      const show = document.getElementsByClassName('form__group--password-show')[0];
-
-      if(show){
-        //if it has been found check if it has class of form__group--password-show-hide
-        const buttonshow = show.classList.contains('form__group--password-show-hide');
-
-        if(buttonshow){
-          //if it has class of form__group--password-show-hide
-          //remove the class
-          show.classList.remove('form__group--password-show-hide');
-          //the select all input with type of text
-          var pwds = document.querySelectorAll('.form__input-type[type="text"]');
-            //loop through all input with type of text
-            for (var i=0;i<pwds.length;i++){
-              //change the input type to password
-              pwds[i].type = "password";
-            }
-        }
-      }
+    //selecting the closest element with class of form__group--password-hide-show
+    const selectHide = el.target.closest('.form__group--password-hide');
+   // checking if it has class of form__group--password-hide-show
+    const passSeen = selectHide.classList.contains('form__group--password-hide-show');
+    if(passSeen){
+      //if it has remove the class
+      selectHide.classList.remove('form__group--password-hide-show');
+      //selecting prev element sibling
+      const passShowhide = selectHide.previousElementSibling;
+      //remove the class form__group--password-show-hide of the prev element sibling
+      passShowhide.classList.remove('form__group--password-show-hide');
+      //selecting the prev element sibling of passShowhide and change input type from text to password
+      passShowhide.previousElementSibling.type = "password";
     }
   });
 }
+
+const infoLink = document.querySelectorAll('.form__group--info-link');
+//looping to all elements with class of form__group--info-link
+for (var i = 0; i < infoLink.length; i++) {
+  //adding click event listener
+  infoLink[i].addEventListener('click', el => {
+    //preventing page from reloading
+    el.preventDefault();
+    //selecting element with class of form__group--info-link
+    const selectInfoLink = el.target.closest('.form__group--info-link');
+
+    if(selectInfoLink){
+      //selecting all popover div
+      const info = document.querySelectorAll('.popover');
+      //looping through popover div
+      for(var x=0; x< info.length; x++){
+        //remove the class popover__visible to hide all popover div
+        info[x].classList.remove('popover__visible');
+      }
+      //getting data-content and title attribute of info link
+      const dataContent = selectInfoLink.getAttribute('data-content');
+      const dataTitle = selectInfoLink.getAttribute('title');
+      //selecting popover div
+      const selectpopOverDiv = selectInfoLink.nextElementSibling;
+      //checking if it has popover__visible class
+      const popOverIsVisible = selectpopOverDiv.classList.contains('popover__visible');
+        //hiding and showing popover div
+        if(popOverIsVisible){
+          //if it has class of popover__visible remove class
+          selectpopOverDiv.classList.remove('popover__visible');
+          //clear popover div
+          selectpopOverDiv.innerHTML = '';
+        }else{
+          //selecting popover wrapper div
+          const wraper = document.querySelectorAll('.popover__wrapper');
+          //looping to all wrapper div
+          for(var v = 0; v < wraper.length; v++){
+            //selecting popover div
+            const wrapperParentDiv = wraper[v].parentElement;
+            //clear popover div
+            wrapperParentDiv.innerHTML = '';
+          }
+          //add class of popover__visible to popover div
+          selectpopOverDiv.classList.add('popover__visible');
+          //dynamic popover title and content mark up
+          const popOverContent = `
+            <div class="popover__wrapper">
+            <div class="popover__title">
+            <p>${dataTitle}</p>
+            <span class="popover__close">X</span>
+            </div>
+            <p class="popover__content">${dataContent}</p>
+            </div>
+          `;
+           //add the popover title and content
+           selectpopOverDiv.insertAdjacentHTML('afterbegin', popOverContent);
+
+           const formEffect = document.querySelectorAll('.form__effect');
+           //looping through popover div
+           for(var z = 0; z < formEffect.length; z++){
+             //remove the class popover__visible to hide all popover div
+             formEffect[z].classList.add('form__effect--visible');
+           }
+
+           //select element of popover div with class of popover__close
+           const closePopOver = document.querySelector('.popover__close');
+           //adding click event to closePopOver
+           closePopOver.addEventListener('click', el => {
+             //select parent element of closePopOver
+             const PopoverTitleDiv = document.querySelector('.popover__title');
+             //selecting div with class of popover__wrapper
+             const PopoverWrapperDiv = PopoverTitleDiv.parentElement;
+             //selecting div with class of popover
+             const PopOverDiv = PopoverWrapperDiv.parentElement;
+             // remove class of popover__visible
+             PopOverDiv.classList.remove('popover__visible');
+             //clear popover div
+             PopOverDiv.innerHTML = '';
+
+             const formEffect = document.querySelectorAll('.form__effect');
+             //looping through popover div
+             for(var q = 0; q < formEffect.length; q++){
+               //remove the class popover__visible to hide all popover div
+               formEffect[q].classList.remove('form__effect--visible');
+             }
+          });
+        }
+      }
+    });
+ }

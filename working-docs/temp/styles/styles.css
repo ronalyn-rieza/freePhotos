@@ -354,8 +354,7 @@ html {
 }
 
 body {
-
-    margin-top: 6.3rem;
+    margin-top: 6.89rem;
     font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
     font-size: 1rem;
     font-weight: 400;
@@ -369,6 +368,7 @@ body {
 
 .body{
   overflow:hidden;
+
 }
 
 ul li{
@@ -401,6 +401,7 @@ small{
 form{
   display: block;
   margin-top: 0em;
+  padding: 1rem;
 }
 
 form textarea {
@@ -502,7 +503,7 @@ form textarea {
   background-color:  #f7f7f7;
   margin-left: auto;
   margin-right: auto;
-  padding: 1rem;
+  padding: ;
   border-radius: .25rem;
 
 }
@@ -513,6 +514,15 @@ form textarea {
     border-bottom: 1px solid rgba(0,0,0,.1);
     font-size: 2rem;
     font-weight: 400;
+    background-color: rgba(153,153,153, .3);
+  }
+
+@media only screen and (max-width: 75em) {
+
+.card{
+    width: 70%
+
+}
   }
 
 @media only screen and (max-width: 61.9em) {
@@ -587,10 +597,60 @@ form textarea {
   position: relative;
 }
 
+.nav--logo-link{
+    width: 13%;
+  }
+
+.nav--logo-link:hover > h1 .icon-small{
+        fill: #dc3545;
+    }
+
+.nav--logo-link:hover > h1 .nav--logo-link-ver-text{
+        color: #007791;
+    }
+
+.nav--logo-link:hover > h1 .nav--logo-link-dot{
+        color: #007791;
+    }
+
+.nav--logo-link h1{
+      font-weight: 400;
+      font-size: 1.4rem;
+    }
+
+.nav--logo-link-ver-text{
+      -webkit-writing-mode: vertical-lr;
+          -ms-writing-mode: tb-lr;
+              writing-mode: vertical-lr;
+      text-orientation: upright;
+      font-size: .5rem;
+      letter-spacing: -5px;
+      color: #dc3545;
+      line-height: .5;
+    }
+
+.nav--logo-link-dot{
+      color: #dc3545;
+      font-size: 2rem;
+    }
+
+.nav--logo-link-io{
+      font-size: 1rem;
+      font-weight: 500;
+    }
+
 @media only screen and (max-width: 61.9em) {
 
 .nav--logo-link{
-      width:30%
+      width: 30%;
+      margin-right:  0
+  }
+  }
+
+@media only screen and (max-width: 35.9em) {
+
+.nav--logo-link{
+      width: 45%
   }
   }
 
@@ -620,13 +680,6 @@ form textarea {
           font-size: 1.1rem;
           color:#007791;
         }
-
-@media only screen and (max-width: 61.9em) {
-
-.nav__primary--content__link{
-          padding-bottom: 1rem
-      }
-  }
 
 .nav__primary--content__link-profile{
           margin-left: auto;
@@ -782,11 +835,11 @@ form textarea {
       }
 
           .nav__primary--content__search:hover{
-              width: 100%;
+            width: 100%;
           }
 
           .nav__primary--content__search:focus{
-              width: 100%;
+            width: 100%;
           }
   }
 
@@ -794,7 +847,7 @@ form textarea {
 
 .nav__primary--content{
         opacity:0;
-        margin-top: -345px;
+        margin-top: -324px;
         z-index: -1;
         transition: all .5s ease;
         display: flex;
@@ -876,22 +929,6 @@ form textarea {
       flex-direction: column;
       align-items: stretch
   }
-  }
-
-.nav__web-name-text{
-    position:absolute;
-    top: 0;
-    left: 0;
-    margin:0;
-    padding: 0;
-    text-indent: -9999px;
-    display: inline-block;
-  }
-
-.nav__web-name-logo{
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-    margin-right:  2rem;
   }
 
 .btn{
@@ -1589,14 +1626,74 @@ form textarea {
   }
   }
 
-.form__group{
-    position: relative;
+.form__input--group{
+      position: relative;
   }
+
+.form__input--group-password{
+        position: absolute;
+        right: 5px;
+        top: 4px;
+        background-color: transparent;
+        border: 1px solid rgba(51,51,51, .3);
+        border-radius: .25rem;
+        padding: .1rem .3rem;
+        vertical-align: middle;
+        color:#777;
+      }
+
+.form__input--group-password:hover{
+          cursor: pointer;
+          color: #007791;
+          border: 1px solid rgba(51,51,51, .5);
+        }
+
+.form__item{
+      display: block;
+      width: 100%;
+      margin-top: .3rem;
+      padding: .375rem .75rem;
+      font-size: 1rem;
+      line-height: 1.5;
+      background-color: transparent;
+      border: 1px solid rgba(51,51,51, .6);
+      border-radius: .25rem;
+      box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+      transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  }
+
+.form__item:focus{
+        outline: none;
+        box-shadow: none;
+    }
+
+.form__item:focus:invalid {
+        border: 1px solid rgba(220,53,69,.6);
+      }
+
+.form__group{
+
+    display:flex;
+    align-items: baseline;
+    margin-bottom: 1.5rem;
+  }
+
+.form__group--input{
+      margin-right: .4rem;
+      width: 95%;
+    }
+
+.form__group--info{
+      position: relative;
+      border: 1px solid rgba(51,51,51, .3);
+      border-radius: .25rem;
+      padding: .4rem;
+    }
 
 .form__group--password{
       position: absolute;
       right: 5px;
-      top: 4px;
+      top: 9px;
       background-color: transparent;
       border: 1px solid rgba(51,51,51, .3);
       border-radius: .25rem;
@@ -1628,29 +1725,6 @@ form textarea {
         cursor: pointer;
         color: #007791;
         border: 1px solid rgba(51,51,51, .5);
-      }
-
-.form__item{
-      display: block;
-      width: 100%;
-      margin-top: .3rem;
-      padding: .375rem .75rem;
-      font-size: 1rem;
-      line-height: 1.5;
-      background-color: transparent;
-      border: 1px solid rgba(51,51,51, .6);
-      border-radius: .25rem;
-      box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
-      transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-  }
-
-.form__item:focus{
-        outline: none;
-        box-shadow: none;
-    }
-
-.form__item:focus:invalid {
-        border: 1px solid rgba(220,53,69,.6);
       }
 
 .form__forgot-pass{
@@ -1716,6 +1790,93 @@ form textarea {
   }
   }
 
+.form__effect--visible{
+    opacity: .3;
+    pointer-events: none;
+  }
+
+.popover{
+  background-color: #f7f7f7;
+  position: absolute;
+  width: 300px;
+  height: auto;
+  left: -30px;
+  border: 1px solid #777;
+  border-radius: .25rem;
+  margin-top:3rem;
+  z-index: -10;
+  visibility: hidden;
+  opacity: 0;
+
+
+}
+
+@media only screen and (max-width: 75em) {
+
+.popover{
+  right: -30px;
+  left: auto
+
+
+}
+  }
+
+.popover::before{
+  content:"";
+   position: absolute;
+   height: 0px;
+   width: 0px;
+   top: -30px;
+   left: 28px;
+   border-width: 15px;
+   border-color: transparent transparent #999 transparent;
+   border-style: solid;
+
+  }
+
+@media only screen and (max-width: 75em) {
+
+.popover::before{
+   right: 28px;
+   left: auto
+
+  }
+  }
+
+.popover__close{
+    border: 1px solid rgba(51,51,51, .2);
+    padding: 0 .3rem 0 .3rem;
+    border-radius: .25rem;
+  }
+
+.popover__close:hover{
+      cursor:pointer;
+      color: #dc3545;
+    }
+
+.popover__title{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-weight: 500;
+    background-color: rgba(153,153,153, .5);
+    padding: .8rem;
+
+  }
+
+.popover__content{
+    padding: .8rem;
+    font-size: .9rem;
+  }
+
+.popover__visible{
+    transition: all .5s ease;
+    z-index: 10;
+    visibility:visible;
+    opacity: 1;
+    margin-top:1rem;
+  }
+
 .footer{
   color:#f7f7f7;
   font-weight: 300;
@@ -1751,7 +1912,6 @@ form textarea {
   }
 
 .footer__content--contact{
-      padding: 1rem;
       width:48%;
       border: 1px solid rgba(0,0,0,.125);
       border-radius: .25rem;
