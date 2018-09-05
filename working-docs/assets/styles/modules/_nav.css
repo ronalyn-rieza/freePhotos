@@ -39,6 +39,10 @@
       letter-spacing: -5px;
       color: $color-secondary;
       line-height: .5;
+
+      @mixin atSmall{
+        letter-spacing: -3px;
+      }
     }
 
     &-dot{
@@ -79,7 +83,7 @@
 
         &:hover{
           backface-visibility: hidden;
-          font-size: 1.1rem;
+          font-size: 1.02rem;
           color:$color-primary;
         }
 
@@ -89,7 +93,7 @@
           backface-visibility: hidden;
 
           &:hover{
-            font-size: 1.1rem;
+            font-size: 1.02rem;
             color:$color-primary;
             backface-visibility: hidden;
           }
@@ -110,7 +114,7 @@
           backface-visibility: hidden;
 
           &:hover{
-            font-size: 1.1rem;
+            font-size: 1.02rem;
             color:$color-secondary;
             backface-visibility: hidden;
           }
@@ -230,7 +234,7 @@
       }
       @mixin atMedium{
         opacity:0;
-        margin-top: -324px;
+        margin-top: -329px;
         z-index: -1;
         transition: all .5s ease;
         display: flex;

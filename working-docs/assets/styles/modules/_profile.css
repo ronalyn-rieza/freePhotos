@@ -1,0 +1,75 @@
+.profile{
+
+  &__info{
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding-top: 2rem;
+    padding-left: 7rem;
+    padding-right: 7rem;
+
+    &--change-pass-photo{
+      margin-top: 1rem;
+      color:  blue;
+
+      &:hover{
+        color:  $color-grey-dark-3;
+        font-size: 1.02rem;
+      }
+    }
+
+    @mixin atSmall{
+       flex-direction: column;
+       align-items: stretch;
+       text-align: center;
+       padding-left: 1.5rem;
+       padding-right: 1.5rem;
+
+       & hr{
+         display: block;
+       }
+    }
+  }
+  &__image{
+    width: 50%;
+
+    & img{
+      box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1);
+      border: 1px solid rgba(0,0,0,.125);
+      border-radius: .25rem;
+      max-width: 100%;
+      min-width: 100%;
+      vertical-align: bottom;
+      min-height: 200px;
+      max-height: 200px;
+      object-fit: cover;
+      margin-bottom: .5rem;
+      background-color: lightblue;
+
+      @mixin atSmall{
+        max-height: 400px;
+        margin-bottom: 1rem;
+      }
+    }
+
+    @mixin atMedium{
+      width: 45%;
+    }
+
+    @mixin atSmall{
+        width: 100%;
+        margin-bottom: .5rem;
+    }
+  }
+
+  &__about{
+    width:44%;
+    margin-top: 2rem;
+
+    @mixin atSmall{
+        width: 100%;
+        margin-top: .5rem;
+
+    }
+  }
+}

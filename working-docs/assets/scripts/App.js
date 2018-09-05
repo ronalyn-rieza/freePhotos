@@ -124,12 +124,12 @@ for (var i = 0; i < openModal.length; i++) {
   });
 }
 
-const closeModal = document.querySelector('.modal__close');
+const closeModal = document.querySelector('.close');
 if(closeModal){
   //if element with class of modal__close add click event
   closeModal.addEventListener('click', el => {
     //selecting the element with class of modal__close
-    const close = el.target.closest('.modal__close');
+    const close = el.target.closest('.close');
     if(close){
       //if it has been selected look for elements with class name of modal
       const classModal = document.getElementsByClassName('modal')[0];
@@ -177,7 +177,7 @@ for (var i = 0; i < firstLetterCap.length; i++) {
   firstLetterCap[i].addEventListener('keyup', el => {
     const caps =  el.target.closest('.form__input--fistLetter-cap');
       //getting the value of selected element
-      const value =  caps.value;
+      const value =  caps.value.replace(/^\s+/g, '');
       //change the first letter to Uppercase
       const firstLetterCapValue = value.charAt(0).toUpperCase() + value.slice(1);
       //changing the value of selected elements

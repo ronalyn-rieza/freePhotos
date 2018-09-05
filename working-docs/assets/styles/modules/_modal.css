@@ -18,7 +18,45 @@
 
   }
 
-  &__content {
+  &__form{
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+
+      @mixin atMedium{
+        max-height: 100%;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom:0;
+        transform: translateY(0);
+      }
+
+      @mixin atMedium{
+       overflow-y: scroll;
+       }
+
+    &--card{
+      width:50%;
+
+        @mixin  atLarge{
+          width: 60%;
+        }
+
+        @mixin atMedium{
+          width:80%;
+          margin-top: 5rem;
+          margin-bottom:5rem;
+        }
+
+        @mixin atSmall{
+         width:90%;
+         }
+    }
+  }
+
+  &__images{
     position: absolute;
     width: 100%;
     top: 50%;
@@ -34,11 +72,11 @@
       }
     }
 
-      @mixin atMedium{
-        max-height: 100%;
-        left: 0;
-        right: 0;
-      }
+    @mixin atMedium{
+      max-height: 100%;
+      left: 0;
+      right: 0;
+    }
   }
 
   &__close {

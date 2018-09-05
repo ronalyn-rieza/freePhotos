@@ -509,12 +509,26 @@ form textarea {
 }
 
 .card__heading{
-    padding: 1rem 0 2rem 0;
+    padding: 1.2rem 0 1.3rem 0;
     text-align:center;
     border-bottom: 1px solid rgba(0,0,0,.1);
     font-size: 2rem;
     font-weight: 400;
     background-color: rgba(153,153,153, .3);
+  }
+
+.card__footer{
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+    padding-bottom: 2rem;
+  }
+
+@media only screen and (max-width: 47.9em) {
+
+.card__footer{
+      padding-left: 2rem;
+      padding-right: 2rem
+  }
   }
 
 @media only screen and (max-width: 75em) {
@@ -629,6 +643,13 @@ form textarea {
       line-height: .5;
     }
 
+@media only screen and (max-width: 47.9em) {
+
+.nav--logo-link-ver-text{
+        letter-spacing: -3px
+    }
+  }
+
 .nav--logo-link-dot{
       color: #dc3545;
       font-size: 2rem;
@@ -677,7 +698,7 @@ form textarea {
 .nav__primary--content__link:hover{
           -webkit-backface-visibility: hidden;
                   backface-visibility: hidden;
-          font-size: 1.1rem;
+          font-size: 1.02rem;
           color:#007791;
         }
 
@@ -689,7 +710,7 @@ form textarea {
         }
 
 .nav__primary--content__link-profile:hover{
-            font-size: 1.1rem;
+            font-size: 1.02rem;
             color:#007791;
             -webkit-backface-visibility: hidden;
                     backface-visibility: hidden;
@@ -715,7 +736,7 @@ form textarea {
         }
 
 .nav__primary--content__link-logout:hover{
-            font-size: 1.1rem;
+            font-size: 1.02rem;
             color:#dc3545;
             -webkit-backface-visibility: hidden;
                     backface-visibility: hidden;
@@ -847,7 +868,7 @@ form textarea {
 
 .nav__primary--content{
         opacity:0;
-        margin-top: -324px;
+        margin-top: -329px;
         z-index: -1;
         transition: all .5s ease;
         display: flex;
@@ -1537,7 +1558,62 @@ form textarea {
 
   }
 
-.modal__content {
+.modal__form{
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+  }
+
+@media only screen and (max-width: 61.9em) {
+
+.modal__form{
+        max-height: 100%;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom:0;
+        -webkit-transform: translateY(0);
+                transform: translateY(0)
+  }
+  }
+
+@media only screen and (max-width: 61.9em) {
+
+.modal__form{
+       overflow-y: scroll
+  }
+  }
+
+.modal__form--card{
+      width:50%;
+    }
+
+@media only screen and (max-width: 75em) {
+
+.modal__form--card{
+          width: 60%
+    }
+  }
+
+@media only screen and (max-width: 61.9em) {
+
+.modal__form--card{
+          width:80%;
+          margin-top: 5rem;
+          margin-bottom:5rem
+    }
+  }
+
+@media only screen and (max-width: 47.9em) {
+
+.modal__form--card{
+         width:90%
+    }
+  }
+
+.modal__images{
     position: absolute;
     width: 100%;
     top: 50%;
@@ -1547,23 +1623,23 @@ form textarea {
             transform: translateY(-50%);
   }
 
-.modal__content img{
+.modal__images img{
       width:80%;
     }
 
 @media only screen and (max-width: 61.9em) {
 
-.modal__content img{
+.modal__images img{
         width:100%
     }
   }
 
 @media only screen and (max-width: 61.9em) {
 
-.modal__content {
-        max-height: 100%;
-        left: 0;
-        right: 0
+.modal__images{
+      max-height: 100%;
+      left: 0;
+      right: 0
   }
   }
 
@@ -1875,6 +1951,95 @@ form textarea {
     visibility:visible;
     opacity: 1;
     margin-top:1rem;
+  }
+
+.profile__info{
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding-top: 2rem;
+    padding-left: 7rem;
+    padding-right: 7rem;
+  }
+
+.profile__info--change-pass-photo{
+      margin-top: 1rem;
+      color:  blue;
+    }
+
+.profile__info--change-pass-photo:hover{
+        color:  #333;
+        font-size: 1.02rem;
+      }
+
+@media only screen and (max-width: 47.9em) {
+
+.profile__info{
+       flex-direction: column;
+       align-items: stretch;
+       text-align: center;
+       padding-left: 1.5rem;
+       padding-right: 1.5rem
+  }
+
+       .profile__info hr{
+         display: block;
+       }
+  }
+
+.profile__image{
+    width: 50%;
+  }
+
+.profile__image img{
+      box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1);
+      border: 1px solid rgba(0,0,0,.125);
+      border-radius: .25rem;
+      max-width: 100%;
+      min-width: 100%;
+      vertical-align: bottom;
+      min-height: 200px;
+      max-height: 200px;
+      -o-object-fit: cover;
+         object-fit: cover;
+      margin-bottom: .5rem;
+      background-color: lightblue;
+    }
+
+@media only screen and (max-width: 47.9em) {
+
+.profile__image img{
+        max-height: 400px;
+        margin-bottom: 1rem
+    }
+  }
+
+@media only screen and (max-width: 61.9em) {
+
+.profile__image{
+      width: 45%
+  }
+  }
+
+@media only screen and (max-width: 47.9em) {
+
+.profile__image{
+        width: 100%;
+        margin-bottom: .5rem
+  }
+  }
+
+.profile__about{
+    width:44%;
+    margin-top: 2rem;
+  }
+
+@media only screen and (max-width: 47.9em) {
+
+.profile__about{
+        width: 100%;
+        margin-top: .5rem
+  }
   }
 
 .footer{
