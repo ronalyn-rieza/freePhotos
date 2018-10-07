@@ -5,10 +5,10 @@
     align-items: flex-start;
     justify-content: space-between;
     padding-top: 2rem;
-    padding-left: 7rem;
-    padding-right: 7rem;
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
 
-    &--change-pass-photo{
+    &--change-pass{
       margin-top: 1rem;
       color:  blue;
 
@@ -32,6 +32,7 @@
   }
   &__image{
     width: 50%;
+    text-align: center;
 
     & img{
       box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1);
@@ -42,13 +43,25 @@
       vertical-align: bottom;
       min-height: 200px;
       max-height: 200px;
-      object-fit: cover;
+      object-fit: contain;
       margin-bottom: .5rem;
       background-color: lightblue;
 
       @mixin atSmall{
-        max-height: 400px;
+        max-height: 300px;
         margin-bottom: 1rem;
+      }
+    }
+
+    &--change-edit-photo{
+      margin-top: 1rem;
+      margin-left: .5rem;
+      margin-right: .5rem;
+      color:  blue;
+
+      &:hover{
+        color:  $color-grey-dark-3;
+        font-size: 1.02rem;
       }
     }
 
@@ -71,5 +84,12 @@
         margin-top: .5rem;
 
     }
+  }
+
+  &_delete_photo{
+    max-height: 200px;
+    max-width: 100%;
+    display: block;
+    margin:auto;
   }
 }

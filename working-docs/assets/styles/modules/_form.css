@@ -136,33 +136,11 @@
     }
   }
 
-  &__button{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 1rem;
-
-    &-item{
-      width:48%;
-      margin-top: 1rem;
-
-      @mixin atSmall{
-        width:100%;
-      }
-    }
-
-    @mixin atSmall{
-      flex-direction: column;
-      align-items: stretch;
-    }
-  }
-
   &__effect--visible{
     opacity: .3;
     pointer-events: none;
   }
 }
-
 
 .popover{
   background-color: $color-grey-light-1;
@@ -200,7 +178,6 @@
 
   }
 
-
   &__close{
     border: 1px solid rgba($color-grey-dark-3, .2);
     padding: 0 .3rem 0 .3rem;
@@ -226,7 +203,6 @@
     font-size: .9rem;
   }
 
-
   &__visible{
     transition: all .5s ease;
     z-index: 10;
@@ -234,6 +210,4 @@
     opacity: 1;
     margin-top:1rem;
   }
-
-
 }

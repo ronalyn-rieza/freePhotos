@@ -109,7 +109,7 @@
   &-icon--close-x {
     &::before {
       transform: rotate(39deg);
-      background-color: $color-grey-dark;
+      background-color: $color-secondary;
     }
 
     .nav__menu-icon--show-medium-middle {
@@ -124,7 +124,7 @@
 
     &::after {
       transform: rotate(-39deg);
-      background-color: $color-grey-dark;
+      background-color: $color-secondary;
     }
   }
 }

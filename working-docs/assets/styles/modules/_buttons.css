@@ -151,6 +151,54 @@
     }
 
     &__small-dark{
+      color: $color-light;
+      background-color: $color-grey-dark-3;
+      background-image: none;
+      border-color: $color-grey-dark-3;
+      box-shadow: 0 0.2rem .5rem rgba(0, 0, 0, 0.3);
+      padding: .2rem .5rem;
+      font-size: .9rem;
+      opacity:.70;
+      transition: all .2s ease;
+      backface-visibility: hidden;
 
+      &:hover{
+        opacity:1;
+        backface-visibility: hidden;
+      }
+
+      @mixin atMedium{
+      background-color: rgba($color-grey-dark-3, 0.6);
+      box-shadow: 0 0.2rem .5rem rgba(0, 0, 0, 0.2);
+      opacity:.90;
+      padding: .2rem .3rem;
+      font-size: .8rem;
+
+          & > *{
+              height: .9rem;
+              width: .9rem;
+          }
+      }
     }
+}
+
+.flex__button{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+
+  &-item{
+    width:48%;
+    margin-top: 1rem;
+
+    @mixin atSmall{
+      width:100%;
+    }
+  }
+
+  @mixin atSmall{
+    flex-direction: column;
+    align-items: stretch;
+  }
 }

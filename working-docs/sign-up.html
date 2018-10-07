@@ -46,11 +46,22 @@
   </header>
   <section id="" class="section">
     <div class="container">
-      <div class="">
-
-      </div>
-      <div class="card">
-        <h3 class="card__heading">Sign Up</h3>
+      <div class="card card__medium">
+        <h3 class="card__heading card__heading-medium">Sign Up</h3>
+          <div class="warning-confirm__div">
+          <!--<div class="warning m-medium">
+            <p class="warning__content">Lorem ipsum dolor sit amet, alia audire voluptua ut nec, cum malis adipisci ne, nam</p>
+            <span class="warning__close">X</span>
+          </div>
+          <div class="warning m-medium">
+            <p class="warning__content">Lorem ipsum dolor sit amet, alia audire voluptua ut nec, cum malis adipisci ne, nam</p>
+            <span class="warning__close">X</span>
+          </div>
+          <div class="warning m-medium">
+            <p class="warning__content">Lorem ipsum dolor sit amet, alia audire voluptua ut nec, cum malis adipisci ne, nam</p>
+            <span class="warning__close">X</span>
+          </div>-->
+        </div>
         <form id="register-form" method="post" class="mt-medium" autocomplete="off">
           <label for="fname" class="text-muted form__effect">Firstname:</label>
            <div class="form__group">
@@ -72,7 +83,7 @@
           </div>
              <label for="email" class="text-muted form__effect">E-mail:</label>
           <div class="form__group">
-             <input type="email" name="email" id="email" pattern="^(?!.*\.\.)[\w.\-#!$%&'*+\/=?^_`{}|~]{1,64}@[\w.\-]+\.[a-zA-Z]{2,3}$" title="example@mail.com" class="form__item form__group--input form__effect" value="" required>
+             <input type="email" name="email" id="email" pattern="^(?!.*\.\.)[\w.\-#!$%&'*+\/=?^_`{}|~]{1,64}@[\w.\-]+\.[a-zA-Z]{2,3}$" title="example@mail.com" class="form__item form__group--input form__effect form__input--removespace-start" value="" required>
             <div class="form__group--info">
              <a href="#" class="form__group--info-link" title="Your e-mail" data-content="example@mail.com"><svg class="icon-smallest icon-primary">
                <use xlink:href="assets/images/logos/sprite.svg#icon-info"></use></svg></a>
@@ -105,9 +116,9 @@
                <div class="popover"></div>
             </div>
           </div>
-          <div class="form__button form__effect">
-              <button name="register_submit" id="register-submit" class="btn btn__secondary form__button-item" type="submit">Sign Up</button>
-              <a class="btn btn__dark form__button-item" href="index.html">Cancel</a>
+          <div class="flex__button form__effect">
+              <button type="submit" name="register_submit" id="register-submit" class="btn btn__secondary flex__button-item">Sign Up</button>
+              <a href="index.html" class="btn btn__dark flex__button-item">Cancel</a>
           </div>
         </form>
       </div>

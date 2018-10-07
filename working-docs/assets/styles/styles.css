@@ -7,7 +7,8 @@
 @import "modules/_menubar.css";
 @import "modules/_images-grid.css";
 @import "modules/_pagination.css";
-@import "modules/_modal.css";
+@import "modules/_card.css";
 @import "modules/_form.css";
 @import "modules/_profile.css";
+@import "modules/_modal.css";
 @import "modules/_footer.css";
