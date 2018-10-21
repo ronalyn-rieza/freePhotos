@@ -3,6 +3,7 @@ import MenuToggle from './models/Menu';
 import LikeDownloadBtnToggle from './models/LikeDownloadBtn';
 import ImageLike from './models/ImageLike';
 import Modal from './models/Modal';
+import FormInput from './models/FormInput';
 import ShowPassword from './models/ShowPassword';
 import HidePassword from './models/HidePassword';
 import FirstLetterCap from './models/InputFirstLetterCap';
@@ -46,6 +47,7 @@ const likeImage = document.querySelectorAll('.like');
 if(likeImage){
   //if likeImage id true get new ImageLike
   const likes = new ImageLike(likeImage);
+  
 }
 
 //input fisrt character value to uppercase
@@ -80,6 +82,12 @@ if(infoLink){
   const formInfoLink = new InfoToggle(infoLink);
 }
 
+//use arrow up and down to navigate form inputs
+//selecting element with class of first-input
+const firstFormInput = document.querySelectorAll(".arrow-togglable");
+if(firstFormInput){
+  new FormInput(firstFormInput);
+}
 //close warning Message
 //select element with class of warning-confirm__div
 const warning = document.querySelector('.warning-confirm__div');

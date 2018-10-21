@@ -1,4 +1,5 @@
 import * as Global from './Global';
+import FormInput from './FormInput';
 import InfoToggle from './Info';
 import FirstLetterCap from './InputFirstLetterCap';
 
@@ -10,16 +11,6 @@ export default class Modal {
         //call events function
         this.events(formInfoElements[i]);
       }
-      //add onkeyup event on body element
-      document.body.onkeyup = esc => {
-        //getting which key has been press
-        const key = esc.which || esc.keyCode;
-        //if the key is escape
-        if (key == 27) {
-          //hide modal element
-          this.modalClose();
-        }
-      };
     }
 
     events(i) {
@@ -87,6 +78,17 @@ export default class Modal {
         }
 
       });
+
+      //add onkeyup event on body element
+      document.body.onkeyup = esc => {
+          //getting which key has been press
+          const key = esc.which || esc.keyCode;
+          //if the key is escape
+          if (key == 27) {
+            //hide modal element
+            this.modalClose();
+          }
+        };
     }
 
     modalOpen() {
@@ -99,11 +101,6 @@ export default class Modal {
             modalClass.addEventListener('click', (el) => {
               //prevent page from reloading
               el.preventDefault();
-              //check if the element have been click has class of close
-              if (el.target.matches('.close')){
-                  //if its true call modalClose function
-                  this.modalClose();
-              }
               //showing and hiding popover div
               //sellecting elements with class of form__group--info-link
               const infoLink = document.querySelectorAll('.form__group--info-link');
@@ -117,6 +114,31 @@ export default class Modal {
               if(firstLetterCap){
                 //if firstLetterCap true get new FirstLetterCap
                 const inputFirstletter = new FirstLetterCap(firstLetterCap);
+              }
+              //check if the element have been click has class of close
+              if (el.target.matches('.close')){
+                  //if its true call modalClose function
+                  this.modalClose();
+              }
+
+              if(el.target.matches('.like')){
+                //sellecting element with class of like
+                const likeImage = el.target.closest('.like');
+                if(likeImage){
+                  //get like attribute id
+                  const likeId = likeImage.getAttribute('id');
+                  //set ajax request url
+                  const url = 'modal.php?imageId=';
+                  //set ajax request type to GET
+                  const type = 'GET';
+                  //call ajax function
+                  Global.ajax(type, url, likeImage, likeId);
+                }
+              }
+              //check if the element have been click has class of submit
+              if (el.target.matches('.submit')){
+                  //if its true call submit form with id of edit-profile-form
+                document.getElementById("edit-profile-form").submit();
               }
             });
         }

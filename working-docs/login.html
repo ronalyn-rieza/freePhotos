@@ -57,10 +57,10 @@
         <h3 class="card__heading card__heading-medium">Login</h3>
         <p class="bg-primary message message-small">To like an image please Login or <a href="sign-up.html">Sign Up</a></p>
         <form id="login-form" method="post" autocomplete="off">
-          <input type="email" name="login_email" pattern="^(?!.*\.\.)[\w.\-#!$%&'*+\/=?^_`{}|~]{1,64}@[\w.\-]+\.[a-zA-Z]{2,3}$" title="example@mail.com" class="form__item mt-large mb-xlarge" placeholder="E-mail" value="" required>
+          <input type="email" name="login_email" pattern="^(?!.*\.\.)[\w.\-#!$%&'*+\/=?^_`{}|~]{1,64}@[\w.\-]+\.[a-zA-Z]{2,3}$" title="example@mail.com" class="form__item mt-large mb-xlarge arrow-togglable first-input" placeholder="E-mail" value="" autofocus required>
 
           <div class="form__input--group">
-            <input type="password" name="login_password" class="form__item form__input-type" placeholder="Password" value="" required>
+            <input type="password" name="login_password" class="form__item form__input-type arrow-togglable" placeholder="Password" value="" required>
             <span class="form__input--group-password form__group--password-show">show</span>
             <span class="form__input--group-password form__group--password-hide">hide</span>
           </div>

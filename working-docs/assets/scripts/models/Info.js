@@ -1,3 +1,5 @@
+import FormInput from './FormInput';
+
 export default class InfoToggle {
     constructor(getElements){
       const formInfoElements = this.getElements = getElements;
@@ -110,8 +112,40 @@ export default class InfoToggle {
       const PopOverDiv = PopoverWrapperDiv.parentElement;
       //hide and empty popover div
       this.clearInfo(PopOverDiv);
+      //select popover parent div
+      const formGroupInfoDiv = PopOverDiv.parentElement;
+      //select popover div prev sibling
+      const formGroupInfoDivPrevSib = formGroupInfoDiv.previousElementSibling;
+      //check if it has class of form__input--group
+      const inputGroup = formGroupInfoDivPrevSib.classList.contains('form__input--group');
+      //check if it has class of form item
+      const formInput = formGroupInfoDivPrevSib.classList.contains('form__item');
 
-      //focus form
+      if(inputGroup){
+         //get inputGroup first child
+         const InputGroup1stChild = formGroupInfoDivPrevSib.firstElementChild;
+         //focus element
+         InputGroup1stChild.focus();
+         //check if contains class of arrow-togglable
+         const hasClassOf = InputGroup1stChild.classList.contains('arrow-togglable');
+         if(hasClassOf){
+            //get new FormInput()
+            new FormInput(InputGroup1stChild);
+         }
+
+      }else if(formInput){
+         //focus element
+         const a = formGroupInfoDivPrevSib;
+         //focus element
+         a.focus();
+         //check if it has class of arrow-togglable
+         const b = a.classList.contains('arrow-togglable');
+         if(b){
+            //get new FormInput()
+            new FormInput(a);
+         }
+      }
+      //remove form__effect class
       //sellectng all elements with class 0f form__effect
       const FormEffect = document.querySelectorAll('.form__effect');
       //looping through element with class of form__effect
