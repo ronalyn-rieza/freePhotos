@@ -2,7 +2,7 @@ const path = require('path');
 
 module.exports = {
 
-  entry: ['babel-polyfill', './working-docs/assets/scripts/App.js'],
+  entry: ['@babel/polyfill', './working-docs/assets/scripts/App.js'],
 
   output: {
       path: path.resolve(__dirname, 'working-docs'),
@@ -21,6 +21,5 @@ module.exports = {
       ]
 
   },
-
-  mode: 'development'
+  mode: 'production'
 };

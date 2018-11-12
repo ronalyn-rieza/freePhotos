@@ -15,6 +15,7 @@ export default class InfoToggle {
       i.addEventListener('click', el => {
         //preventing page from reloading
         el.preventDefault();
+        if(el.target.matches('.form__group--info-link, .form__group--info-link *')){
         //target element with class of form__group--info-link
         const selectInfoLink = el.target.closest('.form__group--info-link');
 
@@ -22,6 +23,7 @@ export default class InfoToggle {
           //call toggleInfo function
           this.toggleInfo(selectInfoLink);
         }
+      }
       });
     }
 

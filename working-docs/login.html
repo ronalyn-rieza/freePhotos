@@ -27,9 +27,6 @@
   <header class="header">
     <nav id="" class="nav container">
       <div class="nav__secondary">
-
-          <!--<h1 class="nav__web-name-text">Download Free Photos .io</h1>-->
-          <!--<a href="home.html" class="nav--logo-link"><img src="assets/images/logos/web-logo3.png" alt="freephotos.io logo" class="nav__web-name-logo"></a>-->
           <a href="index.html" class="nav--logo-link"><h1><span class="nav--logo-link-ver-text">free</span>Ph<svg class="icon-small icon-primary">
             <use xlink:href="assets/images/logos/sprite.svg#icon-picasa"></use>
           </svg>Tos<span class="nav--logo-link-dot">.</span><span class="nav--logo-link-io">io</span></h1></a>
@@ -46,16 +43,15 @@
       <div class="nav__menu-icon--show-small">
         <div class="nav__menu-icon--show-small-middle"></div>
       </div>
-    </nav> <!-- slider and login form -->
+    </nav>
   </header>
   <section id="" class="section">
     <div class="container">
-      <div class="">
-
-      </div>
       <div class="card card__medium">
         <h3 class="card__heading card__heading-medium">Login</h3>
-        <p class="bg-primary message message-small">To like an image please Login or <a href="sign-up.html">Sign Up</a></p>
+        <div class="warning-confirm__div">
+        <!--dynamic message goes here -->
+        </div>
         <form id="login-form" method="post" autocomplete="off">
           <input type="email" name="login_email" pattern="^(?!.*\.\.)[\w.\-#!$%&'*+\/=?^_`{}|~]{1,64}@[\w.\-]+\.[a-zA-Z]{2,3}$" title="example@mail.com" class="form__item mt-large mb-xlarge arrow-togglable first-input" placeholder="E-mail" value="" autofocus required>
 

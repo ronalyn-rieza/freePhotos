@@ -361,6 +361,7 @@ body {
     line-height: 1.5;
     color: #333;
     background: url("../../assets/images/logos/sand_pattern_red_overlay.jpg") no-repeat center center fixed;
+    /*background: url("../img/sand_pattern_red_overlay.jpg") no-repeat center center fixed;*/
     background-size: cover;
     min-height: 100vh;
 }
@@ -782,7 +783,7 @@ form textarea {
               writing-mode: vertical-lr;
       text-orientation: upright;
       font-size: .5rem;
-      letter-spacing: -5px;
+      letter-spacing: -2px;
       color: #dc3545;
       line-height: .5;
     }
@@ -1888,7 +1889,6 @@ form textarea {
 .form__group{
 
     display:flex;
-    align-items: baseline;
     margin-bottom: 1.5rem;
   }
 

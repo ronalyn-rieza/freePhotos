@@ -97,10 +97,9 @@ export default class Modal {
       if(modalClass){
             //if modalClass is true add class modal--is-visible
             modalClass.classList.add('modal--is-visible');
+
             //add click event to children elements
             modalClass.addEventListener('click', (el) => {
-              //prevent page from reloading
-              el.preventDefault();
               //showing and hiding popover div
               //sellecting elements with class of form__group--info-link
               const infoLink = document.querySelectorAll('.form__group--info-link');
@@ -121,7 +120,7 @@ export default class Modal {
                   this.modalClose();
               }
 
-              if(el.target.matches('.like')){
+              if(el.target.matches('.like, .like *')){
                 //sellecting element with class of like
                 const likeImage = el.target.closest('.like');
                 if(likeImage){

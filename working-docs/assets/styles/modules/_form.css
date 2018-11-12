@@ -48,7 +48,6 @@
   &__group{
 
     display:flex;
-    align-items: baseline;
     margin-bottom: 1.5rem;
 
     &--input{

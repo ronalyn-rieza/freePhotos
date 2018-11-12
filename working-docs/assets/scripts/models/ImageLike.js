@@ -14,6 +14,7 @@ export default class ImageLike {
       i.addEventListener('click', el => {
         //prevent page from reloading
           el.preventDefault();
+           if(el.target.matches('.like, .like *')){
           //sellecting element with class of like
           const like =  el.target.closest('.like');
 
@@ -27,6 +28,7 @@ export default class ImageLike {
             //call ajax function
             Global.ajax(type, url, like, likeId);
           }
+        }
       });
     }
 }

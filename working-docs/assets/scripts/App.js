@@ -1,3 +1,4 @@
+require('waypoints/lib/noframework.waypoints.min');
 import * as Global from './models/Global';
 import MenuToggle from './models/Menu';
 import LikeDownloadBtnToggle from './models/LikeDownloadBtn';
@@ -47,7 +48,7 @@ const likeImage = document.querySelectorAll('.like');
 if(likeImage){
   //if likeImage id true get new ImageLike
   const likes = new ImageLike(likeImage);
-  
+
 }
 
 //input fisrt character value to uppercase

@@ -29,7 +29,7 @@ export default class FormInput {
 
   arrowToggle (items, i, el, length) {
       //add onkeydown event
-      document.onkeyup = function(e) {
+      document.onkeyup = (e) => {
         // switch from e keycode to another
         switch (e.keyCode || e.which) {
           //if key is arrow up
