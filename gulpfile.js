@@ -17,8 +17,10 @@ const uglify = require('gulp-uglify');
 
 //========start of gulp task for working docs files =========//
 //watching any update of the project files
-gulp.task('watch', () => {
-//initializing browsersync
+
+//function for initializing browserSync
+function browsersync(done) {
+  //initializing browsersync
   browserSync.init({
     notify: false,
     server: {
@@ -26,29 +28,65 @@ gulp.task('watch', () => {
     }
   });
 
-//watching html files
+  done();
+}
+//function to watch changes on html file and reload the page
+function watchHtml(done) {
   watch('./working-docs/**/*.html', () => {
     browserSync.reload();
   });
-//watching css files
+
+  done();
+}
+//function to watch changes on css file and reload the page
+function watchCSS(done){
   watch('./working-docs/assets/styles/**/*.css', () => {
-    gulp.start('cssInject');
+
+    style();
+
+    gulp.src('./working-docs/temp/styles/styles.css')
+    .pipe(browserSync.stream());
+
   });
-//watching javascript file
-  watch('./working-docs/assets/scripts/**/*.js', function() {
-    gulp.start('scriptsRefresh');
-  })
 
-});
+  done();
+}
+//function to watch script files and reload the page
+function watchScript(done){
 
-//reloading browser if there is any update in css file
-gulp.task('cssInject', ['styles'], () => {
-  return gulp.src('./working-docs/temp/styles/styles.css')
-  .pipe(browserSync.stream());
-});
+  watch('./working-docs/assets/scripts/**/*.js', () => {
 
-//saving css style to working-docs temp styles folder from assets styles css
-gulp.task('styles', () => {
+      script();
+    
+  });
+
+  watch('./working-docs/temp/scripts/App.js', () => {
+    browserSync.reload();
+  });
+
+  done();
+
+}
+//execute all the watch fuction 
+gulp.task('watch', gulp.parallel(browsersync, watchHtml, watchCSS, watchScript));
+
+//=====end of gulp task for working docs files ======//
+
+function script() {
+
+    webpack(require('./webpack.config.js'), (err, stats) => {
+      if (err) {
+        console.log(err.toString());
+      }
+      console.log(stats.toString());
+      
+  
+    });
+
+}
+
+function style(){
+
   return gulp.src('./working-docs/assets/styles/styles.css')
   .pipe(postcss([cssImport, mixins, cssvars, nested, hexrgba, autoprefixer]))
   .on('error', (errorInfo) => {
@@ -56,44 +94,18 @@ gulp.task('styles', () => {
     this.emit('end');
   })
   .pipe(gulp.dest('./working-docs/temp/styles'));
-});
 
-//reloading browser if there is any update in js file
-gulp.task('scriptsRefresh', ['scripts'], () => {
-  browserSync.reload();
-});
-
-//getting the webpack configuration
-gulp.task('scripts', (callback) => {
-  webpack(require('./webpack.config.js'), (err, stats) => {
-    if (err) {
-      console.log(err.toString());
-    }
-    console.log(stats.toString());
-    callback();
-  });
-});
-//=====end of gulp task for working docs files ======//
-
+}
 
 //=====start of gulp task for creating final docs files ====//
-//preview final project on a browser
-gulp.task('previewDist', () => {
-  browserSync.init({
-    notify: false,
-    server: {
-      baseDir: "final-docs"
-    }
-  });
-});
-
 //deleting folder final-docs
-gulp.task('deleteDistFolder', () => {
+function deleteDistFolder(done) {
   return del("./final-docs");
-});
+  done();
+}
 
 //copy general files from folder working-docs to folder final-docs
-gulp.task('copyGeneralFiles', () => {
+function copyGeneralFiles(done) {
   const pathsToCopy = [
     './working-docs/**/*',
     '!./working-docs/*.html',
@@ -104,26 +116,49 @@ gulp.task('copyGeneralFiles', () => {
     '!./working-docs/temp/**'
   ];
 
-  return gulp.src(pathsToCopy)
+  gulp.src(pathsToCopy)
     .pipe(gulp.dest("./final-docs"));
-});
+
+  done();
+}
 
 //copying images from working-docs folder to final folder
-gulp.task('copyImages', () => {
-  return gulp.src(['./working-docs/assets/images/**/*'])
-    .pipe(gulp.dest("./final-docs/assets/images"));
-});
+function copyImages(done) {
+   gulp.src(['./working-docs/assets/images/**/*'])
+   .pipe(gulp.dest("./final-docs/assets/images"));
+
+   done();
+}
 
 //compressing css and js save it on final-docs
-gulp.task('usemin', ['styles', 'scripts'], () => {
-  return gulp.src("./working-docs/*.html")
+function useMin(done) { 
+  //get css fileon working docs folder
+  style();
+  //get script file on working docs folder
+  script();
+  //minimise css and script file and save them on html file on final docs folder
+  gulp.src("./working-docs/*.html")
     .pipe(usemin({
       css: [() => {return rev()}, () => {return cssnano()}],
       js: [() => {return rev()}, () => {return uglify()}]
     }))
     .pipe(gulp.dest("./final-docs"));
-});
 
-gulp.task('build', ['deleteDistFolder', 'copyGeneralFiles', 'copyImages', 'usemin']);
+  done();
+}
+//task to build final project document
+gulp.task('build', gulp.series(deleteDistFolder, copyGeneralFiles, copyImages, useMin));
 
-//====== end of  gulp task for creating final docs files ====///
+
+//function to preview final project on a browser
+function previewDist(done) {
+  browserSync.init({
+    notify: false,
+    server: {
+      baseDir: "final-docs"
+    }
+  });
+  done();
+}
+//task to preview final project
+gulp.task('preview', previewDist);
