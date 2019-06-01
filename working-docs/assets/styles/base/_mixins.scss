@@ -22,25 +22,25 @@
 }
 
 @define-mixin minAtLargest {
-  @media only screen (min-width: 75.1em) {
+  @media only screen and (min-width: 75.1em) {
     @mixin-content;
   }
 }
 
 @define-mixin minAtLarge {
-  @media only screen (min-width: 62em) {
+  @media only screen and (min-width: 62em) {
     @mixin-content;
   }
 }
 
 @define-mixin minAtMedium {
-  @media only screen (min-width: 48em) {
+  @media only screen and (min-width: 48em) {
     @mixin-content;
   }
 }
 
 @define-mixin minAtSmall {
-  @media only screen (min-width: 36em) {
+  @media only screen and (min-width: 36em) {
     @mixin-content;
   }
 }

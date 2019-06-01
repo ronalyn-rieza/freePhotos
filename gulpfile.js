@@ -2,13 +2,9 @@ const gulp = require('gulp');
 const webpack = require('webpack');
 const watch = require('gulp-watch');
 const browserSync = require('browser-sync').create();
-const postcss = require('gulp-postcss');
-const autoprefixer = require('autoprefixer');
-const cssvars = require('postcss-simple-vars');
-const nested = require('postcss-nested');
-const cssImport = require('postcss-import');
-const mixins = require('postcss-mixins');
-const hexrgba = require('postcss-hexrgba');
+const sass = require('gulp-sass');
+const sourcemaps = require('gulp-sourcemaps');
+const autoprefixer = require('gulp-autoprefixer');
 const usemin = require('gulp-usemin');
 const del = require('del');
 const rev = require('gulp-rev');
@@ -40,8 +36,9 @@ function watchHtml(done) {
 }
 //function to watch changes on css file and reload the page
 function watchCSS(done){
-  watch('./working-docs/assets/styles/**/*.css', () => {
-
+  
+  watch('./working-docs/assets/styles/**/*.scss', () => {
+  
     style();
 
     gulp.src('./working-docs/temp/styles/styles.css')
@@ -72,36 +69,35 @@ gulp.task('watch', gulp.parallel(browsersync, watchHtml, watchCSS, watchScript))
 
 //=====end of gulp task for working docs files ======//
 
+//script config  with webpack
 function script() {
-
     webpack(require('./webpack.config.js'), (err, stats) => {
       if (err) {
         console.log(err.toString());
       }
       console.log(stats.toString());
       
-  
     });
-
 }
-
+//turn scss file to css with web prefix
 function style(){
-
-  return gulp.src('./working-docs/assets/styles/styles.css')
-  .pipe(postcss([cssImport, mixins, cssvars, nested, hexrgba, autoprefixer]))
-  .on('error', (errorInfo) => {
-    console.log(errorInfo.toString());
-    this.emit('end');
-  })
-  .pipe(gulp.dest('./working-docs/temp/styles'));
-
+  return gulp.src('./working-docs/assets/styles/styles.scss')
+    .pipe(sourcemaps.init())
+    .pipe(sass())
+    .on('error', (errorInfo) => {
+      console.log(errorInfo.toString());
+    })
+    .pipe(sourcemaps.write())
+    .pipe(autoprefixer('last 5 version'))
+    .pipe(gulp.dest('./working-docs/temp/styles'));
 }
 
 //=====start of gulp task for creating final docs files ====//
 //deleting folder final-docs
-function deleteDistFolder(done) {
+function deleteDistFolder() {
+
   return del("./final-docs");
-  done();
+
 }
 
 //copy general files from folder working-docs to folder final-docs
@@ -132,23 +128,15 @@ function copyImages(done) {
 
 //compressing css and js save it on final-docs
 function useMin(done) { 
-  //get css fileon working docs folder
-  style();
-  //get script file on working docs folder
-  script();
-  //minimise css and script file and save them on html file on final docs folder
+  //minimise css and script file and save them on html files on final docs folder
   gulp.src("./working-docs/*.html")
     .pipe(usemin({
       css: [() => {return rev()}, () => {return cssnano()}],
       js: [() => {return rev()}, () => {return uglify()}]
     }))
     .pipe(gulp.dest("./final-docs"));
-
   done();
 }
-//task to build final project document
-gulp.task('build', gulp.series(deleteDistFolder, copyGeneralFiles, copyImages, useMin));
-
 
 //function to preview final project on a browser
 function previewDist(done) {
@@ -160,5 +148,8 @@ function previewDist(done) {
   });
   done();
 }
-//task to preview final project
-gulp.task('preview', previewDist);
+
+//task to build final project document
+gulp.task('build', gulp.series(deleteDistFolder, copyGeneralFiles, copyImages, useMin, previewDist));
+
+
