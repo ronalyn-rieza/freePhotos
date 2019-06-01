@@ -18,7 +18,7 @@
       }
     }
 
-    @mixin atSmall{
+    @include atSmall{
        flex-direction: column;
        align-items: stretch;
        text-align: center;
@@ -47,7 +47,7 @@
       margin-bottom: .5rem;
       background-color: lightblue;
 
-      @mixin atSmall{
+      @include atSmall{
         max-height: 300px;
         margin-bottom: 1rem;
       }
@@ -65,11 +65,11 @@
       }
     }
 
-    @mixin atMedium{
+    @include atMedium{
       width: 45%;
     }
 
-    @mixin atSmall{
+    @include atSmall{
         width: 100%;
         margin-bottom: .5rem;
     }
@@ -79,7 +79,7 @@
     width:44%;
     margin-top: 2rem;
 
-    @mixin atSmall{
+    @include atSmall{
         width: 100%;
         margin-top: .5rem;
 

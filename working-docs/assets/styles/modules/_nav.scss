@@ -40,7 +40,7 @@
       color: $color-secondary;
       line-height: .5;
 
-      @mixin atMedium{
+      @include atMedium{
         letter-spacing: -3px;
       }
     }
@@ -55,12 +55,12 @@
       font-weight: 500;
     }
 
-    @mixin atMedium{
+    @include atMedium{
       width: 30%;
       margin-right:  0;
     }
 
-    @mixin atSmallest{
+    @include atSmallest{
       width: 45%;
     }
   }
@@ -103,7 +103,7 @@
             fill: $color-grey-dark-3;
           }
 
-          @mixin atMedium{
+          @include atMedium{
             margin-left:1rem;
             padding-bottom: 1rem;
           }
@@ -124,7 +124,7 @@
             fill: $color-grey-dark-3;
           }
 
-          @mixin atMedium{
+          @include atMedium{
             margin-left:1rem;
             padding-bottom: 1rem;
           }
@@ -221,7 +221,7 @@
             fill: $color-primary;
         }
 
-        @mixin atMedium{
+        @include atMedium{
           width: 100%;
 
           &:hover{
@@ -233,7 +233,7 @@
           }
         }
       }
-      @mixin atMedium{
+      @include atMedium{
         opacity:0;
         margin-top: -329px;
         z-index: -1;
@@ -259,7 +259,7 @@
         }
     }
 
-    @mixin atMedium{
+    @include atMedium{
         flex-direction: column;
         align-items: stretch;
 
@@ -276,12 +276,12 @@
       transition: all .5s ease;
 
       &__link{
-        @mixin atSmall{
+        @include atSmall{
           text-align: center;
         }
       }
 
-      @mixin atSmall{
+      @include atSmall{
         opacity:0;
         margin-top: -71px;
         z-index: -1;
@@ -306,7 +306,7 @@
       }
     }
 
-    @mixin atSmall{
+    @include atSmall{
       flex-direction: column;
       align-items: stretch;
     }

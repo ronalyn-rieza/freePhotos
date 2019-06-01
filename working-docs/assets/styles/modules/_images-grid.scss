@@ -7,12 +7,12 @@
   align-items: center;
   justify-items: center;
 
-  @mixin atLarge{
+  @include atLarge{
       grid-template-rows: minmax(190px, 190px);
       grid-auto-rows: minmax(190px, 190px);
   }
 
-  @mixin atMedium{
+  @include atMedium{
     grid-template-columns:repeat(2, 1fr);
     grid-template-rows: minmax(auto, auto);
     grid-auto-rows: minmax(auto, auto);
@@ -22,7 +22,7 @@
     }
   }
 
-  @mixin atSmall{
+  @include atSmall{
     grid-template-columns:1fr;
     grid-template-rows: auto;
     grid-auto-rows: auto;
@@ -53,19 +53,19 @@
         height: 220px;
         transition: transform .2s ease;
 
-        @mixin atLarge{
+        @include atLarge{
             height: 190px;
         }
 
-        @mixin atMedium{
+        @include atMedium{
           height: 200px;
         }
 
-        @mixin atSmall{
+        @include atSmall{
           min-height: 320px;
         }
 
-        @mixin atSmallest{
+        @include atSmallest{
           min-height: 180px;
         }
       }
@@ -78,12 +78,12 @@
       }
     }
 
-    @mixin atLarge{
+    @include atLarge{
       min-width: 25vw;
       width:100%;
     }
 
-    @mixin atMedium{
+    @include atMedium{
       min-width: 35vw;
       width:100%;
 
@@ -92,7 +92,7 @@
       }
     }
 
-    @mixin atSmall{
+    @include atSmall{
       min-width: 70vw;
       width:100%;
     }
@@ -118,7 +118,7 @@
     margin-left: .5rem;
   }
 
-  @mixin atMedium{
+  @include atMedium{
     margin-top: 1.5rem;
     opacity:1;
     z-index: 1;

@@ -154,7 +154,7 @@
   visibility: hidden;
   opacity: 0;
 
-  @mixin  atLarge{
+  @include atLarge{
   right: -30px;
   left: auto;
   }
@@ -170,7 +170,7 @@
    border-color: transparent transparent $color-grey-dark-2 transparent;
    border-style: solid;
 
-   @mixin  atLarge{
+   @include atLarge{
    right: 28px;
    left: auto;
    }

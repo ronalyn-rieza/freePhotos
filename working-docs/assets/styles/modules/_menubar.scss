@@ -48,7 +48,7 @@
       transition: transform .3s ease-out;
     }
 
-      @mixin atSmall{
+    @include atSmall{
         display:block;
       }
   }
@@ -101,7 +101,7 @@
       transition: transform .3s ease-out;
     }
 
-      @mixin atMedium{
+    @include atMedium{
         display:block;
       }
   }

@@ -22,7 +22,7 @@
       border-radius: .25rem;
       text-align: justify;
 
-      @mixin atSmall{
+      @include atSmall{
         width:100%;
       }
     }
@@ -32,13 +32,13 @@
       border: 1px solid rgba(0,0,0,.125);
       border-radius: .25rem;
 
-      @mixin atSmall{
+      @include atSmall{
         margin-top: 2rem;
         width:100%;
       }
     }
 
-    @mixin atSmall{
+    @include atSmall{
       flex-direction: column;
       align-items: stretch;
     }

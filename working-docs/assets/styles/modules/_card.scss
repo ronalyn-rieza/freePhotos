@@ -8,10 +8,10 @@
   &__medium{
     width: 60%;
 
-    @mixin  atLarge{
+    @include atLarge{
       width: 70%;
     }
-    @mixin atMedium{
+    @include atMedium{
       width: 100%;
     }
   }
@@ -19,14 +19,14 @@
   &__small{
     width: 40%;
 
-    @mixin  atLarge{
+    @include atLarge{
       width: 50%;
     }
-    @mixin atMedium{
+    @include atMedium{
       width: 60%;
     }
 
-    @mixin atSmall{
+    @include atSmall{
       width: 70%;
     }
 
@@ -49,7 +49,7 @@
       padding: 1rem .5rem 1rem .5rem;
       font-size: 1.5rem;
 
-      @mixin atSmall{
+      @include atSmall{
         font-size: 1.25rem;
       }
     }
@@ -64,7 +64,7 @@
     padding-left: 2.5rem;
     padding-right: 2.5rem;
     padding-bottom: 2rem;
-    @mixin  atSmall{
+    @include atSmall{
       padding-left: 2rem;
       padding-right: 2rem;
     }

@@ -21,7 +21,7 @@
           color: $color-grey-dark-3;
         }
 
-        @mixin atSmall{
+        @include atSmall{
         padding: .2rem .5rem;
         font-size: .9rem;
 
@@ -34,7 +34,7 @@
         background-color: $color-primary;
         color:$color-grey-light-1;
 
-        @mixin atSmall{
+        @include atSmall{
           padding: .2rem .5rem;
           font-size: .9rem;
         }
@@ -57,7 +57,7 @@
           color: $color-grey-dark-3;
         }
 
-        @mixin atSmall{
+        @include atSmall{
           padding: .2rem .5rem;
           font-size: .9rem;
 
@@ -65,7 +65,7 @@
       }
   }
 
-  @mixin atMedium{
+  @include atMedium{
     margin-top: 1rem;
   }
 }

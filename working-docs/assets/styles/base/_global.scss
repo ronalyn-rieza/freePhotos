@@ -70,15 +70,15 @@ form{
   margin-left: auto;
   margin-right: auto;
 
-  @mixin atLarge{
+  @include atLarge{
   max-width:  62em;
   }
 
-  @mixin atMedium{
+  @include atMedium{
   max-width: 48em;
   }
 
-  @mixin atSmall{
+  @include atSmall{
     max-width: 36em;
   }
 }
@@ -302,7 +302,7 @@ form{
       color:$color-grey-dark-3;
     }
 
-    @mixin atSmall{
+    @include atSmall{
       font-size: .8rem;
       padding-left: .3rem;
       padding-right: .3rem;
