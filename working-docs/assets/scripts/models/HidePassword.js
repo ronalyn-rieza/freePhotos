@@ -1,9 +1,10 @@
 export default class HidePassword {
     constructor(getElements){
-      const passwordElements = this.getElements = getElements;
+      //const passwordElements = this.getElements = getElements;
+      this.getElements = getElements;
       //loop trough all elements
-      for(var ii = 0; ii < passwordElements.length; ii++){
-        this.events(passwordElements[ii]);
+      for(var ii = 0; ii < this.getElements.length; ii++){
+        this.events(this.getElements[ii]);
       }
     }
 

@@ -1,9 +1,10 @@
 export default class FirstLetterCap {
     constructor(getElements){
-      const inputElements = this.getElements = getElements;
+      //const inputElements = this.getElements = getElements;
+      this.getElements = getElements;
       //loop trough all elements
-      for(var ii = 0; ii < inputElements.length; ii++){
-        this.events(inputElements[ii]);
+      for(let ii = 0; ii < this.getElements.length; ii++){
+        this.events(this.getElements[ii]);
       }
     }
 

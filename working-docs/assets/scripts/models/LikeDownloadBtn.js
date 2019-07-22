@@ -1,10 +1,11 @@
 export default class LikeDownloadBtnToggle {
     constructor(getElements){
-      const likeDownloadElements = this.getElements = getElements;
+      //const likeDownloadElements = this.getElements = getElements;
+      this.getElements = getElements;
       //loop trough all elements
-      for (var i = 0; i < likeDownloadElements.length; i++) {
+      for (let i = 0; i < this.getElements.length; i++) {
         //call events function
-        this.events(likeDownloadElements[i]);
+        this.events(this.getElements[i]);
       }
     }
 

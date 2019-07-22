@@ -2,11 +2,12 @@ import FormInput from './FormInput';
 
 export default class InfoToggle {
     constructor(getElements){
-      const formInfoElements = this.getElements = getElements;
+      //const formInfoElements = this.getElements = getElements;
+      this.getElements = getElements;
       //loop trough all elements
-      for (var i = 0; i < formInfoElements.length; i++) {
+      for (var i = 0; i < this.getElements.length; i++) {
         //call events function
-        this.events(formInfoElements[i]);
+        this.events(this.getElements[i]);
       }
     }
 

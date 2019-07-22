@@ -1,12 +1,14 @@
 export default class MenuToggle {
     constructor(getElements){
-      const menuElements = this.getElements = getElements;
-      this.events(menuElements);
+      //const menuElements = this.getElements = getElements;
+      this.getElements = getElements;
+      //this.events(menuElements);
+      this.events(this.getElements);
     }
 
-    events(menuElements) {
+    events() {
       //add click event
-      menuElements.addEventListener('click', el => {
+      this.getElements.addEventListener('click', el => {
         //get closest element with class of nav__menu-icon--show-medium
         const mediumMenuEl = el.target.closest('.nav__menu-icon--show-medium');
           //get closest element with class of nav__menu-icon--show-small

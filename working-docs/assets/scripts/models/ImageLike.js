@@ -2,10 +2,11 @@ import * as Global from './Global';
 
 export default class ImageLike {
     constructor(getElements){
-      const imageLikeElements = this.getElements = getElements;
+      //const imageLikeElements = this.getElements = getElements;
+      this.getElements = getElements;
       //loop trough all elements
-      for(var ii = 0; ii < imageLikeElements.length; ii++){
-        this.events(imageLikeElements[ii]);
+      for(var ii = 0; ii < this.getElements.length; ii++){
+        this.events(this.getElements[ii]);
       }
     }
 

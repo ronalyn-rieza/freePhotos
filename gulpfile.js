@@ -36,11 +36,21 @@ function watchHtml(done) {
 }
 //function to watch changes on css file and reload the page
 function watchCSS(done){
-  
+  //watch all scss file 
   watch('./working-docs/assets/styles/**/*.scss', () => {
-  
-    style();
+    
+    //convert scss file to css using gulp-sass and add prefix before saving it to temp css file
+    gulp.src('./working-docs/assets/styles/styles.scss')
+    .pipe(sourcemaps.init())
+    .pipe(sass())
+    .on('error', (errorInfo) => {
+      console.log(errorInfo.toString());
+    })
+    .pipe(sourcemaps.write())
+    .pipe(autoprefixer('last 5 version'))
+    .pipe(gulp.dest('./working-docs/temp/styles'));
 
+    //if there r changes made reload html file
     gulp.src('./working-docs/temp/styles/styles.css')
     .pipe(browserSync.stream());
 
@@ -50,13 +60,19 @@ function watchCSS(done){
 }
 //function to watch script files and reload the page
 function watchScript(done){
-
+  //watch all js file and use webpack for configuration 
   watch('./working-docs/assets/scripts/**/*.js', () => {
-
-      script();
+    //link webpack config file
+    webpack(require('./webpack.config.js'), (err, stats) => {
+      if (err) {
+        console.log(err.toString());
+      }
+      console.log(stats.toString());
+      
+    });
     
   });
-
+  //watch script temp file for changes and reload html files
   watch('./working-docs/temp/scripts/App.js', () => {
     browserSync.reload();
   });
@@ -68,29 +84,6 @@ function watchScript(done){
 gulp.task('watch', gulp.parallel(browsersync, watchHtml, watchCSS, watchScript));
 
 //=====end of gulp task for working docs files ======//
-
-//script config  with webpack
-function script() {
-    webpack(require('./webpack.config.js'), (err, stats) => {
-      if (err) {
-        console.log(err.toString());
-      }
-      console.log(stats.toString());
-      
-    });
-}
-//turn scss file to css with web prefix
-function style(){
-  return gulp.src('./working-docs/assets/styles/styles.scss')
-    .pipe(sourcemaps.init())
-    .pipe(sass())
-    .on('error', (errorInfo) => {
-      console.log(errorInfo.toString());
-    })
-    .pipe(sourcemaps.write())
-    .pipe(autoprefixer('last 5 version'))
-    .pipe(gulp.dest('./working-docs/temp/styles'));
-}
 
 //=====start of gulp task for creating final docs files ====//
 //deleting folder final-docs
@@ -138,6 +131,9 @@ function useMin(done) {
   done();
 }
 
+//task to build final project document
+gulp.task('build', gulp.series(deleteDistFolder, copyGeneralFiles, copyImages, useMin));
+
 //function to preview final project on a browser
 function previewDist(done) {
   browserSync.init({
@@ -150,6 +146,6 @@ function previewDist(done) {
 }
 
 //task to build final project document
-gulp.task('build', gulp.series(deleteDistFolder, copyGeneralFiles, copyImages, useMin, previewDist));
+gulp.task('preview', previewDist);
 
 
